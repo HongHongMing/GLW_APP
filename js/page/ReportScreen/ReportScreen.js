@@ -12,16 +12,12 @@ export default class ReportScreen extends Component {
                 <ScrollView>
                     <Content>
                         <List style={{backgroundColor:'#ffffff'}}>
-                            <ListItem icon>
-                                <Left>
-                                    <Icon name="paper"  style={{color:'#2c7a78'}} />
-                                </Left>
-                                <Body>
-                                <Text>损耗率统计分析表</Text>
-                                </Body>
-                                <Right style={{justifyContent:'center'}}>
-                                    <Icon name="arrow-forward" style={{fontSize: 26.5}}/>
-                                </Right>
+                            <ListItem>
+                                <Body><Text>损耗率统计分析表</Text></Body>
+                                <Right></Right>
+                            </ListItem>
+                            <ListItem>
+                                <Text>班次生产报表</Text>
                             </ListItem>
                         </List>
                     </Content>
