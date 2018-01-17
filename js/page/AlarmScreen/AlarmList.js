@@ -5,10 +5,12 @@ import {
     FlatList,
     Text,
     Button,
-    RefreshControl
+    RefreshControl,
+    TouchableOpacity
 } from 'react-native';
 import NavigationBar from '../../common/NavigationBar';
-var ITEM_HEIGHT = 100;
+import AlarmCell from './AlarmCell';
+var ITEM_HEIGHT = 85;
 
 export default class AlarmList extends Component {
 
@@ -19,16 +21,23 @@ export default class AlarmList extends Component {
             refreshing: false,
         };
     }
-    _renderItem = (item) => {
-        var txt = '第' + item.index + '个' + ' title=' + item.item.title;
-        // var bgColor = item.index % 2 == 0 ? 'red' : 'blue';
-        var bgColor = '#ffffff';
-        return <View style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor,marginRight:10,marginLeft:10,marginBottom:10,
-            padding:10
-        }]}>
-            <Text style={styles.txt}>磨边机1设备报警{txt}</Text>
-        </View>
-    }
+    // _renderItem = (item) => {
+    //     var txt = '第' + item.index + '个' + ' title=' + item.item.title;
+    //     // var bgColor = item.index % 2 == 0 ? 'red' : 'blue';
+    //     var bgColor = '#ffffff';
+    //     return <TouchableOpacity> <View style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor,marginRight:10,marginLeft:10,marginBottom:10,
+    //         padding:10,borderRadius:5
+    //     }]}>
+    //         <Text style={styles.txt}>磨边机1设备报警</Text>
+    //         <View style={{borderColor:'#F1F1F1',borderWidth:1,marginTop:15,marginBottom:5}}></View>
+    //         <View style={{justifyContent:'space-between',flexDirection:'row'}}>
+    //             <Text>时间：2017-12-25 16:30</Text>
+    //             <View style={{flexDirection:'row', alignSelf:'flex-end'}}>
+    //                 <Text>状态：</Text><Text>未确认未恢复</Text>
+    //             </View>
+    //         </View>
+    //     </View></TouchableOpacity>
+    // }
 
     _header = () => {
         return <Text style={[styles.txt,{backgroundColor:'black'}]}>这是头部</Text>;
@@ -75,14 +84,18 @@ export default class AlarmList extends Component {
                     {/*// this._flatList.scrollToIndex({viewPosition:0,index:8});*/}
                     {/*// this._flatList.scrollToOffset({animated: true, offset: 2000});*/}
                 {/*}}/>*/}
-                <View style={{flex:1,paddingTop:10,paddingBottom:0}}>
+                <View style={{height:'80%',paddingTop:10,paddingBottom:0}}>
 
                     <FlatList
                         ref={(flatList)=>this._flatList = flatList}
                         // ListHeaderComponent={this._header}
                         // ListFooterComponent={this._footer}
                         // ItemSeparatorComponent={this._separator}
-                        renderItem={this._renderItem}
+                        renderItem={ ({item, index}) => (
+                            <AlarmCell itemInfo = {item}
+                                      // click = {() => {this._clickItem(item);}}屏蔽点击事件
+                            />
+                        )}
                         refreshControl= { <RefreshControl
                             refreshing={this.state.refreshing}
                             onRefresh={this._onRefresh.bind(this)}
@@ -107,7 +120,6 @@ export default class AlarmList extends Component {
                         data={data}>
                     </FlatList>
                 </View>
-
             </View>
         );
     }

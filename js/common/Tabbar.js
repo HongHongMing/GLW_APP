@@ -76,7 +76,7 @@ const Tabbar = TabNavigator({
         style: {
             margin: 0,
             padding: 0,
-            height: 50,
+            height: 56,
             borderTopColor: "#e5e5e5",
             borderTopWidth: 0.5,
             borderBottomWidth: 0.5,

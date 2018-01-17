@@ -55,8 +55,7 @@ class AlarmFilter extends Component{
     render() {
         const { navigation } = this.props;
         return (
-            <View style={{ flex: 1 }}>
-                <NavigationBar title={'筛选'} style={{backgroundColor:'#3396FB'}}   leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))} />
+            <View>
                 <Container>
                     <Content>
                         <List>
@@ -93,7 +92,7 @@ class AlarmFilter extends Component{
 }
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        // flex:1,
     },
     label:{
         alignSelf:'flex-start',
