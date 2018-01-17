@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { Container, Header, Content, List, ListItem, Text,Tab,Tabs,ScrollableTab,Left,Body } from 'native-base';
 const ITEM_HEIGHT = 100;
-class StateScreen_detail extends Component {
+class AlarmScreen_detail extends Component {
     renderButton(image){
         return <TouchableOpacity
             style={{padding: 8}}
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default StateScreen_detail;
+export default AlarmScreen_detail;

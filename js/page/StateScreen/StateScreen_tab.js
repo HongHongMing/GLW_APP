@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NavigationBar from '../../common/NavigationBar';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import StateScreenTabs from '../../common/StateScreenTabs'
+import StateScreenTabs from './StateScreenTabs'
 import {
     View,
     StyleSheet,

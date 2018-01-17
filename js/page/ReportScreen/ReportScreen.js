@@ -4,6 +4,20 @@ import { View, StyleSheet, Image,Platform,ScrollView } from 'react-native';
 import { Container, Header, Content, List, ListItem, Text, Left, Body, Right, Switch,Icon,Thumbnail} from 'native-base';
 import NavigationBar from '../../common/NavigationBar';
 export default class ReportScreen extends Component {
+    goBanBie= (e) => {
+        const {navigate} = this.props.navigation;
+        navigate('BanBie');
+    }
+    goBanCiBaoBiao(){
+
+    }
+    goDeviceStatus(){
+
+    }
+    goGlassDamage(){
+
+    }
+
     render() {
         const { navigation } = this.props;
         return (
@@ -12,12 +26,29 @@ export default class ReportScreen extends Component {
                 <ScrollView>
                     <Content>
                         <List style={{backgroundColor:'#ffffff'}}>
-                            <ListItem>
-                                <Body><Text>损耗率统计分析表</Text></Body>
-                                <Right></Right>
+                            <ListItem onPress={this.goBanBie}>
+                                <Body><Text>生产班组产能效率统计表</Text></Body>
+                                <Right style={{justifyContent:'center'}}>
+                                    <Icon name="arrow-forward" style={{fontSize: 26.5}}/>
+                                </Right>
                             </ListItem>
                             <ListItem>
-                                <Text>班次生产报表</Text>
+                                <Body><Text>班次生产统计报表</Text></Body>
+                                <Right style={{justifyContent:'center'}}>
+                                    <Icon name="arrow-forward" style={{fontSize: 26.5}}/>
+                                </Right>
+                            </ListItem>
+                            <ListItem>
+                                <Body><Text>设备运行状态统计表</Text></Body>
+                                <Right style={{justifyContent:'center'}}>
+                                    <Icon name="arrow-forward" style={{fontSize: 26.5}}/>
+                                </Right>
+                            </ListItem>
+                            <ListItem>
+                                <Body><Text>玻璃损坏统计分析表</Text></Body>
+                                <Right style={{justifyContent:'center'}}>
+                                    <Icon name="arrow-forward" style={{fontSize: 26.5}}/>
+                                </Right>
                             </ListItem>
                         </List>
                     </Content>

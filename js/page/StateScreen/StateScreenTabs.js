@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import AlarmScreen_tab from '../../js/page/AlarmScreen/AlarmScreen_tab'
+import StateScreen_detail from './StateScreen_detail'
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 
 
@@ -11,11 +11,11 @@ const ProfileScreen = () => (
     </View>
 );
 
-const AlarmScreenTab = TabNavigator({
+const StateScreenTabs = TabNavigator({
     StateScreen_detail: {
-        screen: AlarmScreen_tab,
+        screen: StateScreen_detail,
         navigationOptions: {
-            tabBarLabel: '全部',
+            tabBarLabel: '设备详情',
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-home' : 'ios-home-outline'}
@@ -28,7 +28,7 @@ const AlarmScreenTab = TabNavigator({
     Profile: {
         screen: ProfileScreen,
         navigationOptions: {
-            tabBarLabel: '未确认',
+            tabBarLabel: '设备故障记录',
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-person' : 'ios-person-outline'}
@@ -73,4 +73,4 @@ const AlarmScreenTab = TabNavigator({
     },
 });
 
-export default AlarmScreenTab;
+export default StateScreenTabs;
