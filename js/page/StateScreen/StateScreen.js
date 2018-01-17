@@ -20,7 +20,7 @@ class StateScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <NavigationBar title={'实时追踪'} style={{backgroundColor:'#488aff'}} statusBar={{backgroundColor:'#488aff'}}/>
+                <NavigationBar title={'实时追踪'} style={{backgroundColor:'#3396FB'}} statusBar={{backgroundColor:'#3396FB'}}/>
                     <ScrollView >
                         <Content style={{paddingLeft:5,paddingRight:5}}>
                             <Card>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     titleView:{
         height:Platform.OS=='ios'?64:44,
         paddingTop:Platform.OS=='ios'?14:0,
-        backgroundColor:'#488aff',
+        backgroundColor:'#3396FB',
         justifyContent: 'center',
         alignItems: 'center',
     },

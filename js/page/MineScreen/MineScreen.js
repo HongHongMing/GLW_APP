@@ -28,7 +28,7 @@ export default class MineScreen extends Component {
         const { navigation } = this.props;
         return (
             <View style={{ flex: 1 }}>
-                <NavigationBar title={'我的'} style={{backgroundColor:'#488aff'}} />
+                <NavigationBar title={'我的'} style={{backgroundColor:'#3396FB'}} />
                 <TouchableOpacity onPress={this._showDateTimePicker}>
                     <Text>Show DatePicker{this.state.Date}</Text>
                 </TouchableOpacity>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     titleView:{
         height:Platform.OS=='ios'?64:44,
         paddingTop:Platform.OS=='ios'?14:0,
-        backgroundColor:'#488aff',
+        backgroundColor:'#3396FB',
         justifyContent: 'center',
         alignItems: 'center',
     },

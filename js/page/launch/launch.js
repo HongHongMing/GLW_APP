@@ -60,7 +60,7 @@ class Launch extends Component {
         return (
             <View style = {styles.view}>
                 <StatusBar
-                    backgroundColor="#488aff"
+                    backgroundColor="#3396FB"
                 />
                 <Text style = {styles.text}>欢迎使用高力威app</Text>
             </View>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#488aff',
+        backgroundColor: '#3396FB',
     },
     text: {
         fontSize: 20,

@@ -22,7 +22,7 @@ export default class ReportScreen extends Component {
         const { navigation } = this.props;
         return (
             <View style={styles.container}>
-            <NavigationBar title={'数据报表'}style={{backgroundColor:'#488aff'}}/>
+            <NavigationBar title={'数据报表'}style={{backgroundColor:'#3396FB'}}/>
                 <ScrollView>
                     <Content>
                         <List style={{backgroundColor:'#ffffff'}}>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     titleView:{
         height:Platform.OS=='ios'?64:44,
         paddingTop:Platform.OS=='ios'?14:0,
-        backgroundColor:'#488aff',
+        backgroundColor:'#3396FB',
         justifyContent: 'center',
         alignItems: 'center',
     },

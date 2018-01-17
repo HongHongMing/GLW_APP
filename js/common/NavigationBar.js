@@ -108,6 +108,6 @@ const styles = StyleSheet.create({
     },
     statusBar: {
         height: Platform.OS === 'ios' ? STATUS_BAR_HEIGHT:0,
-        backgroundColor:'#488aff'
+        backgroundColor:'#3396FB'
     },
 })

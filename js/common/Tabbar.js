@@ -8,6 +8,19 @@ import {MineScreen} from '../../js/page/MineScreen/MineScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 
 const Tabbar = TabNavigator({
+    My: {
+        screen:MineScreen,
+        navigationOptions: {
+            tabBarLabel: '工作空间',
+            tabBarIcon: ({ tintColor, focused }) => (
+                <Ionicons
+                    name={focused ? 'ios-desktop' : 'ios-desktop-outline'}
+                    size={26}
+                    style={{ color: tintColor }}
+                />
+            ),
+        }
+    },
     State: {
         screen: StateScreen,
         navigationOptions: {
@@ -20,19 +33,6 @@ const Tabbar = TabNavigator({
                 />
             ),
         },
-    },
-    Alarm: {
-        screen:AlarmList,
-        navigationOptions: {
-            tabBarLabel: '报警中心',
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Ionicons
-                    name={focused ? 'ios-notifications' : 'ios-notifications-outline'}
-                    size={26}
-                    style={{ color: tintColor }}
-                />
-            ),
-        }
     },
     Report: {
         screen: ReportScreen,
@@ -47,13 +47,13 @@ const Tabbar = TabNavigator({
             ),
         },
     },
-    My: {
-        screen:MineScreen,
+    Alarm: {
+        screen:AlarmList,
         navigationOptions: {
-            tabBarLabel: '我的',
+            tabBarLabel: '报警中心',
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
-                    name={focused ? 'ios-person' : 'ios-person-outline'}
+                    name={focused ? 'ios-notifications' : 'ios-notifications-outline'}
                     size={26}
                     style={{ color: tintColor }}
                 />
@@ -83,11 +83,11 @@ const Tabbar = TabNavigator({
             borderBottomColor: "blue",
             backgroundColor: "#ffffff",
         },
-        activeBackgroundColor:'white',
-        activeTintColor:'#488aff',
-        inactiveBackgroundColor:'white',
-        inactiveTintColor:'#54504e',
-        pressColor: "#e5e5e5",
+        activeBackgroundColor:'#FFFFFF',
+        activeTintColor:'#3396FB',
+        inactiveBackgroundColor:'#FFFFFF',
+        inactiveTintColor:'#191F25',
+        pressColor: "#C8C8CF",
         pressOpacity: 0.3,
         indicatorStyle: {
             height:0,

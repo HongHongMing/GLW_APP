@@ -52,21 +52,21 @@ const StateScreenTabs = TabNavigator({
         style: {
             margin: 0,
             padding: 0,
-            borderTopColor: "#e5e5e5",
+            borderTopColor: "#C8C8CF",
             borderTopWidth: 0.5,
             borderBottomWidth: 0.5,
-            borderBottomColor: "#54504e",
+            borderBottomColor: "#191F25",
             backgroundColor: "#ffffff",
         },
         indicatorStyle:{
             height:2,
-            backgroundColor:'#488aff'
+            backgroundColor:'#3396FB'
         },
         activeBackgroundColor:'white',
-        activeTintColor:'#488aff',
+        activeTintColor:'#3396FB',
         inactiveBackgroundColor:'white',
-        inactiveTintColor:'#54504e',
-        pressColor: "#e5e5e5",
+        inactiveTintColor:'#191F25',
+        pressColor: "#C8C8CF",
         pressOpacity: 0.3,
         showLabel: true,
         upperCaseLabel: false,

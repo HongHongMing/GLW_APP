@@ -56,7 +56,7 @@ class AlarmFilter extends Component{
         const { navigation } = this.props;
         return (
             <View style={{ flex: 1 }}>
-                <NavigationBar title={'筛选'} style={{backgroundColor:'#488aff'}}   leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))} />
+                <NavigationBar title={'筛选'} style={{backgroundColor:'#3396FB'}}   leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))} />
                 <Container>
                     <Content>
                         <List>
@@ -98,14 +98,14 @@ const styles = StyleSheet.create({
     label:{
         alignSelf:'flex-start',
         flexWrap:'nowrap',
-        color:'#488aff',
+        color:'#3396FB',
         paddingRight:10,
         paddingLeft:10
     },
     titleView:{
         height:Platform.OS=='ios'?64:44,
         paddingTop:Platform.OS=='ios'?14:0,
-        backgroundColor:'#488aff',
+        backgroundColor:'#3396FB',
         justifyContent: 'center',
         alignItems: 'center',
     },

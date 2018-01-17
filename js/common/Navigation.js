@@ -48,10 +48,10 @@ const AppNavigation  = StackNavigator({
     navigationOptions: {  // 屏幕导航的默认选项, 也可以在组件内用 static navigationOptions 设置(会覆盖此处的设置)
         headerBackTitle: null,  // 左上角返回键文字
         headerStyle: {
-            backgroundColor: '#fff'
+            backgroundColor: '#FFFFFF'
         },
         headerTitleStyle: {
-            color: '#333'
+            color: '#191F25'
         },
         cardStack: {
             gesturesEnabled: true

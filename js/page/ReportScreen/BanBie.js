@@ -41,9 +41,9 @@ class BanBie extends Component {
         return (
             <View>
                 <NavigationBar
-                    title={'生产班组产能效率统计表'} style={{backgroundColor:'#488aff'}}
+                    title={'生产班组产能效率统计表'} style={{backgroundColor:'#3396FB'}}
                     leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))}
-                    statusBar={{backgroundColor:'#488aff'}}
+                    statusBar={{backgroundColor:'#3396FB'}}
                 />
                 <View style={styles.container}>
                     <ScrollView
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     container: {
         padding:10
     },
-    head: { height: 40, backgroundColor: '#f1f8ff' },
+    head: { height: 40, backgroundColor: '#C8C8CF' },
     text: { marginLeft: 5 },
     row: { height: 30 }
 })
