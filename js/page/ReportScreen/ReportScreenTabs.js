@@ -1,13 +1,19 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, {Component} from 'react';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import {ReportScreen} from './ReportScreen'
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
-
-
+import NavigationBar from '../../common/NavigationBar';
+import AppNavigation from '../../../js/common/Navigation'
+import {
+    View,
+    StyleSheet,
+    Image,
+    TouchableOpacity,
+    Text
+} from 'react-native';
 const ProfileScreen = () => (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Profile Screen</Text>
+        <Text>production Screen</Text>
     </View>
 );
 const productionScreen = () => (
@@ -62,11 +68,6 @@ const ReportScreenTabs = TabNavigator({
     initialRouteName:'ReportScreen',
     backBehavior:'none',
     tabBarOptions: {
-        labelStyle: {
-            margin: 0,
-            padding: 0,
-            fontSize: 16,
-        },
         style: {
             margin: 0,
             padding: 0,
@@ -92,5 +93,4 @@ const ReportScreenTabs = TabNavigator({
         upperCaseLabel: false,
     },
 });
-
 export default ReportScreenTabs;

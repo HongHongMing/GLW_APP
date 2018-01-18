@@ -3,10 +3,9 @@ import { View, Text } from 'react-native';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import {StateScreen} from '../../js/page/StateScreen/StateScreen';
 import {AlarmList} from '../../js/page/AlarmScreen/AlarmList';
-import ReportScreen_tab from '../../js/page/ReportScreen/ReportScreen_tab';
+import ReportScreenTabs from '../../js/page/ReportScreen/ReportScreenTabs';
 import {MineScreen} from '../../js/page/MineScreen/MineScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
-
 const Tabbar = TabNavigator({
     My: {
         screen:MineScreen,
@@ -35,7 +34,7 @@ const Tabbar = TabNavigator({
         },
     },
     Report: {
-        screen: ReportScreen_tab,
+        screen: ReportScreenTabs,
         navigationOptions: {
             tabBarLabel: '数据报表',
             tabBarIcon: ({ tintColor, focused }) => (
@@ -97,5 +96,4 @@ const Tabbar = TabNavigator({
         upperCaseLabel: false,
     },
 });
-
 export default Tabbar;

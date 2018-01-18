@@ -6,6 +6,7 @@ import NavigationBar from '../../common/NavigationBar';
 export default class ReportScreen extends Component {
     goBanBie= (e) => {
         const {navigate} = this.props.navigation;
+        console.log(navigate);
         navigate('BanBie');
     }
     goBanCiBaoBiao(){
@@ -22,7 +23,6 @@ export default class ReportScreen extends Component {
         const { navigation } = this.props;
         return (
             <View style={styles.container}>
-            <NavigationBar title={'数据报表'}style={{backgroundColor:'#3396FB'}}/>
                 <ScrollView>
                     <Content>
                         <List style={{backgroundColor:'#ffffff'}}>
