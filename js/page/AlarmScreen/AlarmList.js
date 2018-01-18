@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import NavigationBar from '../../common/NavigationBar';
 import AlarmCell from './AlarmCell';
+import {AlarmFilter} from './AlarmFilter'
 var ITEM_HEIGHT = 85;
 
 export default class AlarmList extends Component {
@@ -47,9 +48,9 @@ export default class AlarmList extends Component {
         return <Text style={[styles.txt,{backgroundColor:'black'}]}>这是尾部</Text>;
     }
 
-    // _separator = () => {
-    //     return <View style={{height:2,backgroundColor:'yellow'}}/>;
-    // }
+    _separator = () => {
+        return <View style={{height:10,backgroundColor:'#e9e9ef'}}/>;
+    }
 
 
     _onRefresh() {
@@ -70,6 +71,13 @@ export default class AlarmList extends Component {
         }
     }
 
+    _clickItem = (item) => {
+        const {navigate} = this.props.navigation;
+        console.log('促发了');
+        // navigate('AlarmFilter', {linkUrl: item.linkUrl, title: item.title});
+        navigate('AlarmScreen_detail');
+    }
+
     render() {
         var data = [];
         for (var i = 0; i < 20; i++) {
@@ -84,16 +92,17 @@ export default class AlarmList extends Component {
                     {/*// this._flatList.scrollToIndex({viewPosition:0,index:8});*/}
                     {/*// this._flatList.scrollToOffset({animated: true, offset: 2000});*/}
                 {/*}}/>*/}
-                <View style={{height:'80%',paddingTop:10,paddingBottom:0}}>
+                <View style={{height:'80%',paddingTop:10,paddingBottom:0,paddingLeft:10,paddingRight:10}}>
 
                     <FlatList
                         ref={(flatList)=>this._flatList = flatList}
                         // ListHeaderComponent={this._header}
                         // ListFooterComponent={this._footer}
-                        // ItemSeparatorComponent={this._separator}
+                        ItemSeparatorComponent={this._separator}
                         renderItem={ ({item, index}) => (
                             <AlarmCell itemInfo = {item}
-                                      // click = {() => {this._clickItem(item);}}屏蔽点击事件
+                                      //click = {() => {this._clickItem(item);}}屏蔽点击事件
+                                       click={()=>{this._clickItem(item)}}
                             />
                         )}
                         refreshControl= { <RefreshControl
@@ -119,6 +128,9 @@ export default class AlarmList extends Component {
                         //}}
                         data={data}>
                     </FlatList>
+                </View>
+                <View>
+                    <AlarmFilter/>
                 </View>
             </View>
         );

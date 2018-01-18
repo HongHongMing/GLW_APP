@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Text,TouchableHighlight} from 'react-native';
+import { View, StyleSheet, Image, Text,TouchableOpacity} from 'react-native';
 var ITEM_HEIGHT = 85;
 class AlarmCell extends Component {
     constructor(props) {
@@ -8,9 +8,10 @@ class AlarmCell extends Component {
     }
     render() {
         const item = this.props.itemInfo;
+        const click = this.props.click;
         var bgColor = '#ffffff';
-        return <TouchableHighlight>
-            <View style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor,marginRight:10,marginLeft:10,marginBottom:10, padding:10,borderRadius:5}]}>
+        return <TouchableOpacity onPress = {click}>
+            <View style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor,paddingRight:10,paddingLeft:10,padding:10,borderRadius:5}]}>
             <Text style={styles.txt}>磨边机1设备报警</Text>
             <View style={{borderColor:'#F1F1F1',borderWidth:1,marginTop:15,marginBottom:5}}></View>
             <View style={{justifyContent:'space-between',flexDirection:'row'}}>
@@ -20,7 +21,7 @@ class AlarmCell extends Component {
                 </View>
             </View>
         </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
     }
 }
 const styles = StyleSheet.create({

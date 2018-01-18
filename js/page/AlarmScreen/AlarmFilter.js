@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { TabNavigator, StackNavigator} from 'react-navigation';
-import { View, StyleSheet, Image,Platform,TouchableOpacity} from 'react-native';
-import { Container, Header, Content, List, ListItem, Text, Left, Body, Right, Switch,Icon,Thumbnail} from 'native-base';
+import { View, StyleSheet, Image,Platform,TouchableOpacity,Text} from 'react-native';
+import Picker from 'react-native-picker';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import NavigationBar from '../../common/NavigationBar';
 import moment from 'moment';
 import momentLocale from 'moment/locale/zh-cn';
 moment.updateLocale('zh-cn', momentLocale);
-
+const data = ["钟无艳","甄姬","貂蝉","诸葛亮","安其拉","白起","不知火舞","妲己","狄仁杰"];
 class AlarmFilter extends Component{
     state = {
         isDateTimePickerVisible: false,
@@ -41,37 +40,22 @@ class AlarmFilter extends Component{
         this.setState({endTimeDate:date});
         this._hideEndTimeDateTimePicker();
     };
-    renderButton(image){
-        return <TouchableOpacity
-            style={{padding: 8}}
-            onPress={()=>{
-                this.props.navigation.goBack();
-            }}>
-            <Image
-                style={{width: 26, height: 26}}
-                source={image}/>
-        </TouchableOpacity>;
-    }
+
     render() {
-        const { navigation } = this.props;
         return (
-            <View>
-                <Container>
-                    <Content>
-                        <List>
-                            <ListItem last style={{marginTop:10}}>
-                                    <Text>开始时间:</Text>
-                                    <TouchableOpacity onPress={this._showStartTimeDateTimePicker} style={{marginRight:10}}>
-                                        <Text style={styles.label}>{this.state.startTime}</Text>
-                                    </TouchableOpacity>
-                                    <Text>结束时间:</Text>
-                                    <TouchableOpacity onPress={this._showEndTimeDateDateTimePicker}>
-                                        <Text style={styles.label}>{this.state.endTime}</Text>
-                                    </TouchableOpacity>
-                            </ListItem>
-                        </List>
-                    </Content>
-                </Container>
+            <View style={{flexDirection:'row',justifyContent:'space-between',padding:5,borderTopWidth:1,borderColor:'#C8C8CF',backgroundColor:'#ffffff'}}>
+                <View style={{flexDirection:'row'}}>
+                    <Text>开始时间:</Text>
+                        <TouchableOpacity onPress={this._showStartTimeDateTimePicker} style={{marginRight:10}}>
+                        <Text style={styles.label}>{this.state.startTime}</Text>
+                        </TouchableOpacity>
+                </View>
+                <View style={{flexDirection:'row'}}>
+                    <Text>结束时间:</Text>
+                    <TouchableOpacity onPress={this._showEndTimeDateDateTimePicker}>
+                        <Text style={styles.label}>{this.state.endTime}</Text>
+                    </TouchableOpacity>
+                </View>
                 <DateTimePicker
                     isVisible={this.state.isStartTime}
                     onConfirm={this._handleStartTimeDatePicked}
@@ -91,28 +75,13 @@ class AlarmFilter extends Component{
     }
 }
 const styles = StyleSheet.create({
-    container: {
-        // flex:1,
-    },
     label:{
         alignSelf:'flex-start',
         flexWrap:'nowrap',
         color:'#3396FB',
         paddingRight:10,
         paddingLeft:10
-    },
-    titleView:{
-        height:Platform.OS=='ios'?64:44,
-        paddingTop:Platform.OS=='ios'?14:0,
-        backgroundColor:'#3396FB',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title:{
-        color:'white',
-        fontSize:20,
-        textAlign:'center',
-    },
+    }
 });
 module.exports = {
     AlarmFilter

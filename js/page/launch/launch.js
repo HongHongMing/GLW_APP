@@ -62,7 +62,7 @@ class Launch extends Component {
                 <StatusBar
                     backgroundColor="#3396FB"
                 />
-                <Text style = {styles.text}>欢迎使用高力威app</Text>
+                <Text style = {styles.text}>欢迎使用掌中宝</Text>
             </View>
         );
     }
