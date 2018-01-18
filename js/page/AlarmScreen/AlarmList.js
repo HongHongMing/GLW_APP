@@ -11,6 +11,7 @@ import {
 import NavigationBar from '../../common/NavigationBar';
 import AlarmCell from './AlarmCell';
 import {AlarmFilter} from './AlarmFilter'
+import {itemInfos} from  './AlarmModel'
 var ITEM_HEIGHT = 85;
 
 export default class AlarmList extends Component {
@@ -75,15 +76,10 @@ export default class AlarmList extends Component {
         const {navigate} = this.props.navigation;
         console.log('促发了');
         // navigate('AlarmFilter', {linkUrl: item.linkUrl, title: item.title});
-        navigate('AlarmScreen_detail');
+        navigate('AlarmScreen_detail',{AlarmID:item.AlarmID});
     }
 
     render() {
-        var data = [];
-        for (var i = 0; i < 20; i++) {
-            data.push({key: i, title: i + ''});
-        }
-
         return (
             <View style={{flex:1}}>
                 <NavigationBar title={'报警中心'} style={{backgroundColor:'#3396FB'}} />
@@ -92,12 +88,12 @@ export default class AlarmList extends Component {
                     {/*// this._flatList.scrollToIndex({viewPosition:0,index:8});*/}
                     {/*// this._flatList.scrollToOffset({animated: true, offset: 2000});*/}
                 {/*}}/>*/}
-                <View style={{height:'80%',paddingTop:10,paddingBottom:0,paddingLeft:10,paddingRight:10}}>
+                <View style={{height:'80%',paddingTop:10,paddingBottom:10,paddingLeft:10,paddingRight:10}}>
 
                     <FlatList
                         ref={(flatList)=>this._flatList = flatList}
                         // ListHeaderComponent={this._header}
-                        // ListFooterComponent={this._footer}
+                        // ListFooterComponent={this._footer}hy
                         ItemSeparatorComponent={this._separator}
                         renderItem={ ({item, index}) => (
                             <AlarmCell itemInfo = {item}
@@ -126,10 +122,10 @@ export default class AlarmList extends Component {
                         //onViewableItemsChanged={(info)=>{
                         //console.warn(info);
                         //}}
-                        data={data}>
+                        data={itemInfos}>
                     </FlatList>
                 </View>
-                <View>
+                <View style={{backgroundColor:'#ffffff',height:'20%'}}>
                     <AlarmFilter/>
                 </View>
             </View>

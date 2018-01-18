@@ -9,6 +9,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { Container, Header, Content, List, ListItem, Text,Tab,Tabs,ScrollableTab,Left,Body } from 'native-base';
+import {itemInfos} from './AlarmModel';
 const ITEM_HEIGHT = 100;
 class AlarmScreen_detail extends Component {
     renderButton(image){
@@ -25,13 +26,18 @@ class AlarmScreen_detail extends Component {
     static navigationOptions = {
         title: '开发中'
     }
-
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            AlarmID:this.props.navigation.state.params.AlarmID
+        };
+        this.itemInfo=itemInfos.find(itemInfos=>itemInfos.AlarmID==this.state.AlarmID)
     }
 
+
+
     render () {
+        const date = [];
         return (
             <View style={styles.container}>
                 <NavigationBar
@@ -43,22 +49,31 @@ class AlarmScreen_detail extends Component {
                     <Content>
                         <List>
                             <ListItem last style={styles.listW}>
-                                <Text >报警信息:</Text><Text>设备报警</Text>
+                                <Text >报警信息:</Text><Text>{this.itemInfo.AlarmName}</Text>
                             </ListItem>
                             <ListItem last style={styles.listW}>
-                                <Text>报警时间:</Text><Text>2017年8月11日 9:30</Text>
-                            </ListItem>
-                            <ListItem last style={[styles.listW,{marginTop:10}]}>
-                                <Text>报警状态:</Text><Text>未确认未恢复</Text>
+                                <Text>发生时间:</Text><Text>{this.itemInfo.AlarmOccurrenceTime}</Text>
                             </ListItem>
                             <ListItem last style={styles.listW}>
-                                <Text>确认时间:</Text><Text>2017年8月11日 16:14</Text>
+                                <Text>恢复时间:</Text><Text>{this.itemInfo.AlarmRecoveryTime}</Text>
                             </ListItem>
                             <ListItem last style={styles.listW}>
-                                <Text>报警类型:</Text><Text>越限报警</Text>
+                                <Text>报警源:</Text><Text>{this.itemInfo.AlarmAddress}</Text>
                             </ListItem>
                             <ListItem last style={styles.listW}>
-                                <Text>操作人员:</Text><Text>工作人员A</Text>
+                                <Text>报警类型:</Text><Text>{this.itemInfo.AlarmType}</Text>
+                            </ListItem>
+                            <ListItem last style={styles.listW}>
+                                <Text>报警状态:</Text><Text>{this.itemInfo.AlarmState}</Text>
+                            </ListItem>
+                            <ListItem last style={styles.listW}>
+                                <Text>报警描述:</Text><Text>{this.itemInfo.AlarmDescribe}</Text>
+                            </ListItem>
+                            <ListItem last style={styles.listW}>
+                                <Text>确认时间:</Text><Text>{this.itemInfo.AlarmSetTime}</Text>
+                            </ListItem>
+                            <ListItem last  style={[styles.listW,{marginTop:10}]}>
+                                <Text>维修录入记录:</Text><Text>{this.itemInfo.MaintenanceRecord}</Text>
                             </ListItem>
                         </List>
                     </Content>

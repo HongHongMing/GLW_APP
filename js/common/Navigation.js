@@ -24,6 +24,8 @@ import StateScreen_tab  from '../../js/page/StateScreen/StateScreen_tab'
 import AlarmScreen_detail from '../../js/page/AlarmScreen/AlarmScreen_detail'
 import {AlarmFilter} from '../../js/page/AlarmScreen/AlarmFilter'
 import BanBie from '../../js/page/ReportScreen/BanBie'
+import ReportScreen_tab from '../../js/page/ReportScreen/ReportScreen_tab'
+import ReportScreenTabs from '../../js/page/ReportScreen/ReportScreenTabs'
 const AppNavigation  = StackNavigator({
     Launch: {
         screen: Launch,
@@ -42,6 +44,12 @@ const AppNavigation  = StackNavigator({
     },
     BanBie:{
         screen:BanBie
+    },
+    ReportScreen_tab:{
+        screen:ReportScreen_tab
+    },
+    ReportScreenTabs:{
+        screen:ReportScreenTabs
     }
 },{
     initialRouteName: 'Launch', // 默认显示界面

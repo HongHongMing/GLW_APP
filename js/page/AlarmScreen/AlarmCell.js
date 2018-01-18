@@ -12,12 +12,12 @@ class AlarmCell extends Component {
         var bgColor = '#ffffff';
         return <TouchableOpacity onPress = {click}>
             <View style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor,paddingRight:10,paddingLeft:10,padding:10,borderRadius:5}]}>
-            <Text style={styles.txt}>磨边机1设备报警</Text>
+            <Text style={styles.txt}>{item.AlarmName}</Text>
             <View style={{borderColor:'#F1F1F1',borderWidth:1,marginTop:15,marginBottom:5}}></View>
             <View style={{justifyContent:'space-between',flexDirection:'row'}}>
-                <Text>时间：2017-12-25 16:30</Text>
+                <Text>时间：{item.AlarmOccurrenceTime}</Text>
                 <View style={{flexDirection:'row', alignSelf:'flex-end'}}>
-                    <Text>状态：</Text><Text>未确认未恢复</Text>
+                    <Text>状态：</Text><Text>{item.AlarmState}</Text>
                 </View>
             </View>
         </View>
