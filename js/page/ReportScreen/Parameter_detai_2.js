@@ -13,8 +13,8 @@ import {detailMode} from './Parameter_detailModel';
 import Echarts from 'native-echarts';
 import Dimensions from 'Dimensions';
 const {width} = Dimensions.get('window');
-var ITEM_HEIGHT = 125;
-class Parameter_detail extends Component {
+var ITEM_HEIGHT = 105;
+class Parameter_detai_2 extends Component {
     _flatList;
     constructor(props) {
         super(props);
@@ -22,9 +22,10 @@ class Parameter_detail extends Component {
             ReportID:this.props.navigation.state.params.ReportID,
             refreshing: false,
             data:[],
-            ActualWorkingHours:[8.5,9.1,7.6],
-            TheoryWorkingHours: [10,10,10,],
-            Yield:[1.18,1.10,1.32],
+            DeviceBootTime:[8,8,8],
+            ProcessingTime: [7,7,7],
+            Downtime:[0.3,0.4,0.5],
+            FaultTime:[0.3,0.2,0.1],
         };
         detailMode.find((value, index, arr) => {
             if(value.ReportID == this.state.ReportID){
@@ -34,10 +35,10 @@ class Parameter_detail extends Component {
         // detailMode.find(detailMode=>  detailMode.ReportID==this.state.ReportID);
     }
     static navigationOptions = {
-        title:'生产班组产能统计表',
+        title:'设备运行状态统计表',
     }
     navigationOptions = {
-        title:'生产班组产能统计表',
+        title:'设备运行状态统计表',
         headerRight:<View/>,
         headerLeft:<TouchableOpacity
             style={{padding: 8}}
@@ -78,23 +79,18 @@ class Parameter_detail extends Component {
                         </View>
                         <View style={{flexDirection:'row'}}>
                             <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>实际产能：</Text><Text>{item.item.ActualCapacity}(平方)</Text>
+                                <Text>开机时长：</Text><Text>{item.item.DeviceBootTime}</Text>
                             </View>
                             <View style={{flexDirection:'row'}}>
-                                <Text>实际工时：</Text><Text>{item.item.ActualWorkingHours}</Text>
+                                <Text>加工时长：</Text><Text>{item.item.ProcessingTime}</Text>
                             </View>
                         </View>
                         <View style={{flexDirection:'row'}}>
                             <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>理论工时：</Text><Text>{item.item.TheoryWorkingHours}</Text>
+                                <Text>停机时间：</Text><Text>{item.item.Downtime}</Text>
                             </View>
                             <View style={{flexDirection:'row'}}>
-                                <Text>达  成  率：</Text><Text>{item.item.Yield}%</Text>
-                            </View>
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>良  品  率：</Text><Text>{item.item.Product}%</Text>
+                                <Text>故障时间:</Text><Text>{item.item.FaultTime}</Text>
                             </View>
                         </View>
                         <View style={{borderColor:'#F1F1F1',borderWidth:1,marginTop:5,marginBottom:5}}></View>
@@ -130,7 +126,7 @@ class Parameter_detail extends Component {
             },
             //可以手动选择现实几个图标
             legend: {
-                data:['实时工时','理论工时','达成率']
+                data:['开机时长','加工时长','停机时间','故障时间']
             },
             grid: {
                 left: '3%',
@@ -167,32 +163,32 @@ class Parameter_detail extends Component {
                 {
                     type : 'value',
                     name : ''
-                },{
-                    type: 'value',
-                    name: '',
-                    interval: 0.2,
                 }
             ],
             //图形的颜色组
-            color:['#f6b55d','#4ea7eb',"#16c295"],
+            color:['#f6b55d','#4ea7eb',"#16c295","#f2725c"],
             //需要显示的图形名称，类型，以及数据设置
             series : [
                 {
-                    name:'实时工时',
+                    name:'开机时长',
                     //默认显
                     type:'bar',
-                    data:this.state.ActualWorkingHours
+                    data:this.state.DeviceBootTime
                 },
                 {
-                    name:'理论工时',
+                    name:'加工时长',
                     type:'bar',
-                    data:this.state.TheoryWorkingHours
+                    data:this.state.ProcessingTime
                 },
                 {
-                    name:'达成率',
-                    type:'line',
-                    data:this.state.Yield,
-                    yAxisIndex: 1,
+                    name:'停机时间',
+                    type:'bar',
+                    data:this.state.Downtime,
+                },
+                {
+                    name:'故障时间',
+                    type:'bar',
+                    data:this.state.FaultTime,
                 }
             ]
         };
@@ -225,4 +221,4 @@ const styles = StyleSheet.create({
         width:'50%'
     }
 })
-export default Parameter_detail;
+export default Parameter_detai_2;

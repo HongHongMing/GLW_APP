@@ -24,9 +24,11 @@ import Tabbar from  '../../js/common/Tabbar';
 import StateScreen_tab  from '../../js/page/StateScreen/StateScreen_tab'
 import AlarmScreen_detail from '../../js/page/AlarmScreen/AlarmScreen_detail'
 import {AlarmFilter} from '../../js/page/AlarmScreen/AlarmFilter'
-import BanBie from '../../js/page/ReportScreen/BanBie'
-import {ReportScreen} from '../../js/page/ReportScreen/ReportScreen'
+import BanBie from '../page/ReportScreen/BanBie'
 import ReportScreenTabs from '../../js/page/ReportScreen/ReportScreenTabs'
+import Parameter_detai from '../../js/page/ReportScreen/Parameter_detai'
+import Parameter_detai_2 from '../../js/page/ReportScreen/Parameter_detai_2'
+import Parameter_detai_3 from '../../js/page/ReportScreen/Parameter_detai_3'
 const AppNavigation  = StackNavigator({
     Launch: {
         screen: Launch,
@@ -46,11 +48,17 @@ const AppNavigation  = StackNavigator({
     BanBie:{
         screen:BanBie
     },
-    ReportScreen:{
-        screen:ReportScreen
-    },
     ReportScreenTabs:{
         screen:ReportScreenTabs,
+    },
+    Parameter_detai:{
+        screen:Parameter_detai
+    },
+    Parameter_detai_2:{
+        screen:Parameter_detai_2
+    },
+    Parameter_detai_3:{
+        screen:Parameter_detai_3
     }
 },{
     initialRouteName:'Launch', // 默认显示界面
@@ -79,3 +87,4 @@ const AppNavigation  = StackNavigator({
 
 
 export default AppNavigation;
+

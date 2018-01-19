@@ -73,9 +73,18 @@ export default class Parameter extends Component {
 
     _clickItem = (item) => {
         const {navigate} = this.props.navigation;
-        console.log('促发了');
         // navigate('AlarmFilter', {linkUrl: item.linkUrl, title: item.title});
-        navigate('AlarmScreen_detail',{AlarmID:item.AlarmID});
+        switch(item.ReportID)
+        {
+            case 1:
+                navigate('Parameter_detai',{ReportID:item.ReportID});
+                break;
+            case 2:
+                navigate('Parameter_detai_2',{ReportID:item.ReportID});
+                break;
+            default:
+                navigate('Parameter_detai_3',{ReportID:item.ReportID});
+        }
     }
 
     static navigationOptions = {

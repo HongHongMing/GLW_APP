@@ -13,8 +13,8 @@ import {detailMode} from './Parameter_detailModel';
 import Echarts from 'native-echarts';
 import Dimensions from 'Dimensions';
 const {width} = Dimensions.get('window');
-var ITEM_HEIGHT = 125;
-class Parameter_detail extends Component {
+var ITEM_HEIGHT = 120;
+class Parameter_detai_3 extends Component {
     _flatList;
     constructor(props) {
         super(props);
@@ -34,10 +34,10 @@ class Parameter_detail extends Component {
         // detailMode.find(detailMode=>  detailMode.ReportID==this.state.ReportID);
     }
     static navigationOptions = {
-        title:'生产班组产能统计表',
+        title:'玻璃损坏统计表',
     }
     navigationOptions = {
-        title:'生产班组产能统计表',
+        title:'玻璃损坏统计表',
         headerRight:<View/>,
         headerLeft:<TouchableOpacity
             style={{padding: 8}}
@@ -225,4 +225,4 @@ const styles = StyleSheet.create({
         width:'50%'
     }
 })
-export default Parameter_detail;
+export default Parameter_detai_3;

@@ -13,6 +13,10 @@
  @property {int} TheoryWorkingHours 理论工时
  @property {int} Yield 达成率
  @property {int} Product 良品率
+ @property {int} DeviceBootTime 设备开机时长
+ @property {String} ProcessingTime 加工运行时间
+ @property {String} Downtime 停机时间
+ @property {String} FaultTime 故障时间
 
 
  */
@@ -53,5 +57,36 @@ export const detailMode = [
         TheoryWorkingHours:10,
         Yield:132,
         Product:""
+    },{
+        ReportID:2,
+        ReportName:'设备运行状态统计表',
+        ProductionDate:'2017/11/10',
+        Class:"早",
+        Operator:"刘义",
+        DeviceBootTime:8,
+        ProcessingTime:7,
+        Downtime:0.3,
+        FaultTime:0.3,
+    },{
+        ReportID:2,
+        ReportName:'设备运行状态统计表',
+        ProductionDate:'2017/11/10',
+        Class:"早",
+        Operator:"刘漫",
+        DeviceBootTime:8,
+        ProcessingTime:7,
+        Downtime:0.4,
+        FaultTime:0.1,
+    },
+    {
+        ReportID:2,
+        ReportName:'设备运行状态统计表',
+        ProductionDate:'2017/11/10',
+        Class:"早",
+        Operator:"刘禅",
+        DeviceBootTime:8,
+        ProcessingTime:7,
+        Downtime:0.3,
+        FaultTime:0.3,
     }
 ]
