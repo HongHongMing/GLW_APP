@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import {ReportScreen} from './ReportScreen'
+import {Parameter} from './Parameter'
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 import NavigationBar from '../../common/NavigationBar';
 import AppNavigation from '../../../js/common/Navigation'
@@ -24,9 +24,16 @@ const productionScreen = () => (
 
 const ReportScreenTabs = TabNavigator({
     ReportScreen: {
-        screen: ReportScreen,
+        screen: Parameter,
         navigationOptions: {
+            headerTitle:'数据报表',
             tabBarLabel: '台账',
+            headerRight:<View/>,
+            headerLeft:<View/>,
+            headerStyle:{
+                shadowOpacity:0,
+                elevation: 0
+            },
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-home' : 'ios-home-outline'}
@@ -40,6 +47,13 @@ const ReportScreenTabs = TabNavigator({
         screen: ProfileScreen,
         navigationOptions: {
             tabBarLabel: '记录',
+            headerTitle:'数据报表',
+            headerRight:<View/>,
+            headerLeft:<View/>,
+            headerStyle:{
+                shadowOpacity:0,
+                elevation: 0
+            },
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-person' : 'ios-person-outline'}
@@ -53,6 +67,13 @@ const ReportScreenTabs = TabNavigator({
     screen: productionScreen,
         navigationOptions: {
         tabBarLabel: '生产',
+            headerTitle:'数据报表',
+            headerRight:<View/>,
+            headerLeft:<View/>,
+            headerStyle:{
+                shadowOpacity:0,
+                elevation: 0
+            },
             tabBarIcon: ({ tintColor, focused }) => (
             <Ionicons
                 name={focused ? 'ios-person' : 'ios-person-outline'}
@@ -63,12 +84,15 @@ const ReportScreenTabs = TabNavigator({
     },
 },
 },{
+
     tabBarPosition:'top',
     lazy: true,
     initialRouteName:'ReportScreen',
     backBehavior:'none',
     tabBarOptions: {
         style: {
+            shadowOpacity:0,
+            elevation: 0,
             margin: 0,
             padding: 0,
             borderTopColor: "#3396FB",

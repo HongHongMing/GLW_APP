@@ -24,11 +24,21 @@ export default class MineScreen extends Component {
         this.setState({Date:DateFormat})
         this._hideDateTimePicker();
     };
+    static navigationOptions = {
+        title: '工作空间',
+        headerRight:<View/>,
+        headerLeft:<View/>,
+        headerStyle: {
+            backgroundColor:'red',
+            shadowOpacity:0.5,
+            elevation: 0.5
+        },
+    }
     render() {
         const { navigation } = this.props;
         return (
             <View style={{ flex: 1 }}>
-                <NavigationBar title={'我的'} style={{backgroundColor:'#3396FB'}} />
+                {/*<NavigationBar title={'我的'} style={{backgroundColor:'#3396FB'}} />*/}
                 <TouchableOpacity onPress={this._showDateTimePicker}>
                     <Text>Show DatePicker{this.state.Date}</Text>
                 </TouchableOpacity>

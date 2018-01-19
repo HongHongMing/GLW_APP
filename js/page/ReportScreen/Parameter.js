@@ -9,12 +9,11 @@ import {
     TouchableOpacity
 } from 'react-native';
 import NavigationBar from '../../common/NavigationBar';
-import AlarmCell from './AlarmCell';
-import {AlarmFilter} from './AlarmFilter'
-import {itemInfos} from  './AlarmModel'
+import ReportCard from './ReportCard';
+import {itemInfos} from  './ReportModel'
 var ITEM_HEIGHT = 85;
 
-export default class AlarmList extends Component {
+export default class Parameter extends Component {
 
     _flatList;
     constructor(props) {
@@ -90,9 +89,9 @@ export default class AlarmList extends Component {
             <View style={{flex:1}}>
                 {/*<NavigationBar title={'报警中心'} style={{backgroundColor:'#3396FB'}} />*/}
                 {/*<Button title='滚动到指定位置' onPress={()=>{*/}
-                    {/*//this._flatList.scrollToEnd();*/}
-                    {/*// this._flatList.scrollToIndex({viewPosition:0,index:8});*/}
-                    {/*// this._flatList.scrollToOffset({animated: true, offset: 2000});*/}
+                {/*//this._flatList.scrollToEnd();*/}
+                {/*// this._flatList.scrollToIndex({viewPosition:0,index:8});*/}
+                {/*// this._flatList.scrollToOffset({animated: true, offset: 2000});*/}
                 {/*}}/>*/}
                 <View style={{height:'90%',paddingTop:10,paddingBottom:10,paddingLeft:10,paddingRight:10}}>
 
@@ -102,9 +101,9 @@ export default class AlarmList extends Component {
                         // ListFooterComponent={this._footer}hy
                         ItemSeparatorComponent={this._separator}
                         renderItem={ ({item, index}) => (
-                            <AlarmCell itemInfo = {item}
-                                      //click = {() => {this._clickItem(item);}}屏蔽点击事件
-                                       click={()=>{this._clickItem(item)}}
+                            <ReportCard itemInfo = {item}
+                                //click = {() => {this._clickItem(item);}}屏蔽点击事件
+                                click={()=>{this._clickItem(item)}}
                             />
                         )}
                         refreshControl= { <RefreshControl
@@ -131,9 +130,6 @@ export default class AlarmList extends Component {
                         data={itemInfos}>
                     </FlatList>
                 </View>
-                <View style={{backgroundColor:'#ffffff',height:'20%'}}>
-                    <AlarmFilter/>
-                </View>
             </View>
         );
     }
@@ -153,5 +149,5 @@ const styles = StyleSheet.create({
     }
 });
 module.exports = {
-    AlarmList
+    Parameter
 }

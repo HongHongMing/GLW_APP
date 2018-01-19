@@ -17,10 +17,16 @@ class StateScreen extends Component {
         const {navigate} = this.props.navigation;
         navigate('StateScreen_tab');
     }
+
+    static navigationOptions = {
+        title: '实时追踪',
+        headerRight:<View/>,
+        headerLeft:<View/>,
+    }
     render() {
         return (
             <View style={styles.container}>
-                <NavigationBar title={'实时追踪'} style={{backgroundColor:'#3396FB'}} statusBar={{backgroundColor:'#3396FB'}}/>
+                {/*<NavigationBar title={'实时追踪'} style={{backgroundColor:'#3396FB'}} statusBar={{backgroundColor:'#3396FB'}}/>*/}
                     <ScrollView >
                         <Content style={{paddingLeft:5,paddingRight:5}}>
                             <Card>
