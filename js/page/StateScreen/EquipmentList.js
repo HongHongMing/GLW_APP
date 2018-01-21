@@ -4,22 +4,23 @@ import {
     View,
     FlatList,
     Text,
+    Image,
     Button,
     RefreshControl,
     TouchableOpacity
 } from 'react-native';
 import NavigationBar from '../../common/NavigationBar';
-import ReportCard from './ReportCard';
-import {itemInfos} from  './ReportModel'
+import EquipmentCell from './EquipmentCell';
 var ITEM_HEIGHT = 85;
 
-export default class Parameter extends Component {
+export default class EquipmentList extends Component {
 
     _flatList;
     constructor(props) {
         super(props);
         this.state = {
             refreshing: false,
+            OfflineEquipmentStatus:this.props.navigation.state.params.OfflineEquipmentStatus
         };
     }
     // _renderItem = (item) => {
@@ -74,49 +75,34 @@ export default class Parameter extends Component {
     _clickItem = (item) => {
         const {navigate} = this.props.navigation;
         // navigate('AlarmFilter', {linkUrl: item.linkUrl, title: item.title});
-        switch(item.ReportID)
-        {
-            case 1:
-                navigate('Parameter_detai',{ReportID:item.ReportID});
-                break;
-            case 2:
-                navigate('Parameter_detai_2',{ReportID:item.ReportID});
-                break;
-            default:
-                navigate('Parameter_detai_3',{ReportID:item.ReportID});
-        }
+        navigate('Equipment_detail',{EquipmentID:item.EquipmentID});
     }
 
     static navigationOptions = {
-        title: '报警中心',
+        title: '设备列表',
         headerRight:<View/>,
-        headerLeft:<View/>,
+        // headerLeft:<View/>,
     }
 
     render() {
         return (
             <View style={{flex:1}}>
-                <NavigationBar
-                    title={'设备详情'} style={{backgroundColor:'#3396FB',height:0}}
-                    statusBar={{backgroundColor:'#3396FB'}}
-                />
                 {/*<NavigationBar title={'报警中心'} style={{backgroundColor:'#3396FB'}} />*/}
                 {/*<Button title='滚动到指定位置' onPress={()=>{*/}
                 {/*//this._flatList.scrollToEnd();*/}
                 {/*// this._flatList.scrollToIndex({viewPosition:0,index:8});*/}
                 {/*// this._flatList.scrollToOffset({animated: true, offset: 2000});*/}
                 {/*}}/>*/}
-                <View style={{height:'90%',paddingTop:10,paddingBottom:10,paddingLeft:10,paddingRight:10}}>
-
+                <View style={{paddingTop:10,paddingBottom:10,paddingLeft:10,paddingRight:10}}>
                     <FlatList
                         ref={(flatList)=>this._flatList = flatList}
                         // ListHeaderComponent={this._header}
                         // ListFooterComponent={this._footer}hy
                         ItemSeparatorComponent={this._separator}
                         renderItem={ ({item, index}) => (
-                            <ReportCard itemInfo = {item}
+                            <EquipmentCell OfflineEquipmentStatus = {item}
                                 //click = {() => {this._clickItem(item);}}屏蔽点击事件
-                                click={()=>{this._clickItem(item)}}
+                                       click={()=>{this._clickItem(item)}}
                             />
                         )}
                         refreshControl= { <RefreshControl
@@ -140,7 +126,7 @@ export default class Parameter extends Component {
                         //onViewableItemsChanged={(info)=>{
                         //console.warn(info);
                         //}}
-                        data={itemInfos}>
+                        data={this.state.OfflineEquipmentStatus}>
                     </FlatList>
                 </View>
             </View>
@@ -162,5 +148,5 @@ const styles = StyleSheet.create({
     }
 });
 module.exports = {
-    Parameter
+    EquipmentList
 }

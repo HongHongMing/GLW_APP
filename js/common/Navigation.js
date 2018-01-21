@@ -29,6 +29,8 @@ import ReportScreenTabs from '../../js/page/ReportScreen/ReportScreenTabs'
 import Parameter_detai from '../../js/page/ReportScreen/Parameter_detai'
 import Parameter_detai_2 from '../../js/page/ReportScreen/Parameter_detai_2'
 import Parameter_detai_3 from '../../js/page/ReportScreen/Parameter_detai_3'
+import {EquipmentList} from '../../js/page/StateScreen/EquipmentList'
+import Equipment_detail from  '../../js/page/StateScreen/Equipment_detail'
 const AppNavigation  = StackNavigator({
     Launch: {
         screen: Launch,
@@ -59,6 +61,12 @@ const AppNavigation  = StackNavigator({
     },
     Parameter_detai_3:{
         screen:Parameter_detai_3
+    },
+    EquipmentList:{
+        screen:EquipmentList
+    },
+    Equipment_detail:{
+        screen:Equipment_detail
     }
 },{
     initialRouteName:'Launch', // 默认显示界面

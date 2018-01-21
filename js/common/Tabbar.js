@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import {StateScreen} from '../../js/page/StateScreen/StateScreen';
+import {ProductionList} from '../../js/page/StateScreen/ProductionList';
 import {AlarmList} from '../../js/page/AlarmScreen/AlarmList';
 import ReportScreenTabs from '../../js/page/ReportScreen/ReportScreenTabs';
-import {MineScreen} from '../../js/page/MineScreen/MineScreen';
+import MineScreen  from '../../js/page/MineScreen/MineScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 const Tabbar = TabNavigator({
     My: {
@@ -21,9 +21,9 @@ const Tabbar = TabNavigator({
         }
     },
     State: {
-        screen: StateScreen,
+        screen: ProductionList,
         navigationOptions: {
-            tabBarLabel: '实时状态',
+            tabBarLabel: '设备监视',
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-globe' : 'ios-globe-outline'}
