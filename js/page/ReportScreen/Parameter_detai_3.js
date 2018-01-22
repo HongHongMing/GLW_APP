@@ -1,37 +1,58 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
+import{ StyleSheet,
     View,
-    FlatList,
-    Text,
-    Button,
-    RefreshControl,
+    TouchableOpacity,
     Image,
-    TouchableOpacity} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
-import {detailMode} from './Parameter_detailModel';
-import Echarts from 'native-echarts';
-import Dimensions from 'Dimensions';
-const {width} = Dimensions.get('window');
-var ITEM_HEIGHT = 120;
-class Parameter_detai_3 extends Component {
-    _flatList;
-    constructor(props) {
-        super(props);
-        this.state = {
-            ReportID:this.props.navigation.state.params.ReportID,
-            refreshing: false,
-            data:[],
-            ActualWorkingHours:[8.5,9.1,7.6],
-            TheoryWorkingHours: [10,10,10,],
-            Yield:[1.18,1.10,1.32],
-        };
-        detailMode.find((value, index, arr) => {
-            if(value.ReportID == this.state.ReportID){
-                this.state.data.push(value);
-            }
-        })
-        // detailMode.find(detailMode=>  detailMode.ReportID==this.state.ReportID);
+    FlatList,
+    RefreshControl,
+    ScrollView,
+}from 'react-native';
+import NavigationBar from '../../../js/common/NavigationBar';
+import {
+    Container, Header, Content, Card, CardItem,
+    Thumbnail, Text, Button, Icon, Left,
+    Body ,Right,List,Separator,ListItem
+} from 'native-base';
+import PopupDialog from 'react-native-popup-dialog';
+import CardList from './CardList'
+
+var data = [
+    {key: 1, title: "we"},
+    {key: 2, title: "er"},
+    {key: 3, title: "we"},
+    {key: 4, title: "er"},
+    {key: 5, title: "we"},
+    {key: 6, title: "er"},
+    {key: 7, title: "we"},
+    {key: 8, title: "er"},
+    {key: 9, title: "we"},
+    {key: 10, title: "er"},
+    {key: 11, title: "we"},
+    {key: 12, title: "er"},
+    {key: 13, title: "we"},
+    {key: 14, title: "er"},
+    {key: 15, title: "er"},
+    {key: 16, title: "er"},
+    {key: 17, title: "er"},
+    {key: 18, title: "er"},
+    {key: 19, title: "er"},
+    {key: 20, title: "er"},
+
+ ];
+// for (var i = 1; i <= 15; i++) {
+//     data.push({key: i, title: i + ''});
+// }
+export default class Parameter_detai_3 extends Component {
+    renderButton(image){
+        return <TouchableOpacity
+            style={{padding: 8}}
+            onPress={()=>{
+                this.props.navigation.goBack();
+            }}>
+            <Image
+                style={{width: 26, height: 26}}
+                source={image}/>
+        </TouchableOpacity>;
     }
     static navigationOptions = {
         title:'玻璃损坏统计表',
@@ -47,182 +68,154 @@ class Parameter_detai_3 extends Component {
                 source={require('../../../res/images/ic_arrow_back_white_36pt.png')}/>
         </TouchableOpacity>
     }
-
-
-    goBack =(e)=>{
-        this.props.navigation.goBack();
+    _flatList;
+    constructor(props){
+        super(props);
+        this.state = {
+            refreshing: false,
+        };
     }
-
-    // _header = () => {
-    //     return <Echarts option={option} height={300} width={width}/>;
-    // }
-
-    _separator = () => {
-        return <View style={{height:10,backgroundColor:'#e9e9ef'}}/>;
-    }
-
-    _renderItem = (item) => {
-        console.log(item)
-        const bgColor = '#ffffff';
-        return <View>
-                    <View style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor,
-                            padding:10,borderRadius:5
-                        }]}>
-                        <View style={{flexDirection:'row'}}>
-                            <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>生产日期：</Text><Text>{item.item.ProductionDate}</Text>
-                            </View>
-                            <View style={{flexDirection:'row'}}>
-                                <Text>班        别：</Text><Text>{item.item.Class}</Text>
-                            </View>
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>实际产能：</Text><Text>{item.item.ActualCapacity}(平方)</Text>
-                            </View>
-                            <View style={{flexDirection:'row'}}>
-                                <Text>实际工时：</Text><Text>{item.item.ActualWorkingHours}</Text>
-                            </View>
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>理论工时：</Text><Text>{item.item.TheoryWorkingHours}</Text>
-                            </View>
-                            <View style={{flexDirection:'row'}}>
-                                <Text>达  成  率：</Text><Text>{item.item.Yield}%</Text>
-                            </View>
-                        </View>
-                        <View style={{flexDirection:'row'}}>
-                            <View style={[{flexDirection:'row'},styles.tableCellW]}>
-                                <Text>良  品  率：</Text><Text>{item.item.Product}%</Text>
-                            </View>
-                        </View>
-                        <View style={{borderColor:'#F1F1F1',borderWidth:1,marginTop:5,marginBottom:5}}></View>
-                        <View style={{flexDirection:'row'}}>
-                            <Text>操  作  工：</Text><Text>{item.item.Operator}</Text>
-                        </View>
-                    </View>
-                </View>
-    }
-
-    _onRefresh() {
+    _onRefresh = () => {
         this.setState({refreshing: true});
         this.fetchData().then(() => {
             this.setState({refreshing: false});
         });
     }
+    _footer = () => (
+        <Text style={{fontSize: 14, alignSelf: 'center'}}>到底啦，没有啦！</Text>
+    )
+
     async fetchData() {
-        try {
-            // 注意这里的await语句，其所在的函数必须有async关键字声明
-            let response = await fetch('https://facebook.github.io/react-native/movies.json');
-            let responseJson = await response.json();
-            console.log(responseJson);
-            return responseJson.movies;
-        } catch(error) {
-            console.error(error);
-        }
+        console.log('可爱的漫漫，刷新啦！刷新啦！！');
     }
     render() {
-        const option = {
-            //点击某一个点的数据的时候，显示出悬浮窗
-            tooltip : {
-                trigger: 'axis'
-            },
-            //可以手动选择现实几个图标
-            legend: {
-                data:['实时工时','理论工时','达成率']
-            },
-            grid: {
-                left: '3%',
-                right: '10%',
-                bottom: '3%',
-                containLabel: true
-            },
-            //各种表格
-            // toolbox: {
-            //     //改变icon的布局朝向
-            //     //orient: 'vertical',
-            //     show : true,
-            //     showTitle:true,
-            //     feature : {
-            //         //show是否显示表格，readOnly是否只读
-            //         dataView : {show: true, readOnly: false},
-            //         magicType : {
-            //             //折线图  柱形图    总数统计 分开平铺
-            //             type: ['line', 'bar','stack','tiled'],
-            //         },
-            //
-            //     }
-            // },
-            xAxis : [
-                {
-                    //就是一月份这个显示为一个线段，而不是数轴那种一个点点
-                    boundaryGap:true,
-                    type : 'category',
-                    name : '',
-                    data : ['早班','中班','晚班']
-                },
-            ],
-            yAxis : [
-                {
-                    type : 'value',
-                    name : ''
-                },{
-                    type: 'value',
-                    name: '',
-                    interval: 0.2,
-                }
-            ],
-            //图形的颜色组
-            color:['#f6b55d','#4ea7eb',"#16c295"],
-            //需要显示的图形名称，类型，以及数据设置
-            series : [
-                {
-                    name:'实时工时',
-                    //默认显
-                    type:'bar',
-                    data:this.state.ActualWorkingHours
-                },
-                {
-                    name:'理论工时',
-                    type:'bar',
-                    data:this.state.TheoryWorkingHours
-                },
-                {
-                    name:'达成率',
-                    type:'line',
-                    data:this.state.Yield,
-                    yAxisIndex: 1,
-                }
-            ]
-        };
-        return(
-            <View style={{flex:1}}>
-                <View style={{paddingTop:10,paddingBottom:10,paddingLeft:10,paddingRight:10}}>
-                    <FlatList
+        return (
+            <View>
+                <NavigationBar
+                    title={'玻璃损坏统计表'} style={{backgroundColor:'#3396FB',height:0}}
+                    statusBar={{backgroundColor:'#3396FB'}}
+                />
+                    <FlatList style={styles.ScrollView}
                         ref={(flatList)=>this._flatList = flatList}
-                        ItemSeparatorComponent={this._separator}
-                        renderItem={this._renderItem }
-                        ListHeaderComponent={ <View style={{backgroundColor:'#ffffff',borderRadius:5,marginBottom:10}}><Echarts option={option} height={300} width={width}/></View>}
+                        data={data}
+                        keyExtractor={ (item,index)=>item.title}
                         refreshControl= { <RefreshControl
                             refreshing={this.state.refreshing}
                             onRefresh={this._onRefresh.bind(this)}
+                            ListFooterComponent={this._footer}
                         />}
-                        data={this.state.data}>
+                        renderItem={({item}) => (
+                            <CardList/>
+                        )}>
                     </FlatList>
-                </View>
+                <List style={styles.BottomList}>
+                    <ListItem avatar style={{backgroundColor:'#fff',marginLeft:0}}>
+                        <Body>
+                        <Text>损耗数量：4</Text>
+                        <Text note>总数量：20</Text>
+                        </Body>
+                        <Right style={{paddingTop:0,paddingBottom:0}}>
+                            <TouchableOpacity onPress={() => {this.popupDialog.show();console.log(data)}}
+                                              style={styles.Btndetails}>
+                                <Text style={{color:'#3396FB', marginRight:10}}>详情</Text>
+                                <Icon style={{color:'#3396FB',fontSize:30}} name='ios-arrow-dropup' />
+                            </TouchableOpacity>
+                        </Right>
+                    </ListItem>
+                </List>
+                <PopupDialog
+                    // dismissOnHardwareBackPress=false
+                    // haveOverlay=false
+                    // dismissOnTouchOutside=false
+                    ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+                    width="0.8"
+                    // height="0.34"
+                    // overlayPointerEvents="none"
+                >
+                    <View style={styles.dialogContentView}>
+                        <Content>
+                            <TouchableOpacity onPress={() => {this.popupDialog.dismiss()}}
+                                              style={styles.BtnPopClose}>
+                                <Icon name='ios-close-outline' style={{color:'#C8C8CF'}} />
+                            </TouchableOpacity>
+                            <ListItem style={styles.CardItem}>
+                                <Text style={styles.TitleText}>总数量：</Text>
+                                <Text style={styles.ContentText}>20</Text>
+                            </ListItem>
+                            <ListItem style={styles.CardItem}>
+                                <Text style={styles.TitleText}>损耗率：</Text>
+                                <Text style={styles.ContentText}>20%</Text>
+                            </ListItem>
+                            <ListItem style={styles.CardItem}>
+                                <Text style={styles.TitleText}>完好数量：</Text>
+                                <Text style={styles.ContentText}>16</Text>
+                            </ListItem>
+                            <ListItem style={styles.CardItem}>
+                                <Text style={styles.TitleText}>损坏数量：</Text>
+                                <Text style={styles.ContentText}>4</Text>
+                            </ListItem>
+                            <ListItem style={styles.CardItem}>
+                                <Text style={styles.TitleText}>损坏时间：</Text>
+                                <Text style={styles.ContentText}>2018-1-12 16:20:00</Text>
+                            </ListItem>
+                            <ListItem style={styles.CardItem}>
+                                <Text style={styles.ContentText}>损坏原因TOP1：</Text>
+                                <Text style={styles.ContentText}>设备太low了，赶紧换</Text>
+                            </ListItem>
+                        </Content>
+                    </View>
+                </PopupDialog>
             </View>
-        )
+        );
     }
 }
 const styles = StyleSheet.create({
-    container: {
-        paddingTop:10,
-        paddingLeft:10,
-        paddingRight:10
+    dialogContentView: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    tableCellW:{
-        width:'50%'
+    ScrollView:{
+        paddingTop:5,
+        paddingBottom:0,
+        paddingLeft:0,
+        paddingRight:0,
+        height:'88%'
+    },
+    BtnPopClose:{
+        paddingRight:10,
+        alignItems: 'flex-end',
+        height:20
+    },
+    Btndetails:{
+        paddingTop:0,
+        paddingBottom:0,
+        width:200,
+        height:66,
+        alignItems: 'center',
+        justifyContent:"flex-end",
+        flexWrap:'nowrap',
+        flexDirection:'row',
+        flex:1
+    },
+    CardItem:{
+        paddingTop:5,
+        paddingBottom:5,
+        borderColor:'#fff'
+    },
+    TitleText:{
+        color:'#191F25',
+        fontSize:14,
+        width:70,
+    },
+    ContentText:{
+        color:'#191F25',
+        fontSize:14,
+    },
+    BottomList:{
+        marginLeft:0,
+        backgroundColor:'#fff',
+        bottom:0,
+        borderColor:'#A0A2A5',
     }
 })
-export default Parameter_detai_3;
