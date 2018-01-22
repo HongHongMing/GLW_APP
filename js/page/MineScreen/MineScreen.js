@@ -41,55 +41,61 @@ export default class MineScreen extends Component {
             }
         };
         option = {
-            title: {
-                text: '完成率',
-                subtext:'75%',
-                x: 'center',
-                y: '25',
-                textStyle: {
-                    fontWeight: 'normal',
-                    color:'#191F25',
-                    fontSize: 12
-                },
-                subtextStyle:{
-                    color: "#3396FB",
-                    fontSize: 14
-                }
-            },
-            color: ['#3396FB', '#f0f0f0'],
             tooltip: {
-                show: false,
+                trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
             },
             legend: {
-                show: false,
-                itemGap: 12,
-                data: ['01', '02']
-            },
-            toolbox: {
-                show: false
+                orient: 'vertical',
+                left: 'left',
+                data: ['占有率']
             },
             series: [{
-                name: 'Line 1',
+                name: '饼图二',
                 type: 'pie',
-                clockWise: false,
-                radius: [32, 42],
-                itemStyle: dataStyle,
-                hoverAnimation: false,
-
+                radius: ['60%', '70%'],
+                label: {
+                    normal: {
+                        position: 'center'
+                    }
+                },
                 data: [{
-                    value: 75,
-                    name: '01'
+                    value: 20,
+                    name: '占有率',
+                    label: {
+                        normal: {
+                            formatter: '{d} %',
+                            textStyle: {
+                                fontSize: 50
+                            }
+                        }
+                    }
                 }, {
-                    value: 25,
-                    name: 'invisible',
-                    itemStyle: placeHolderStyle
-                }
-
-                ]
-            }
-
-            ]
+                    value: 80,
+                    name: '占位',
+                    label: {
+                        normal: {
+                            formatter: '\n完成率',
+                            textStyle: {
+                                color: '#555',
+                                fontSize: 20
+                            }
+                        }
+                    },
+                    tooltip: {
+                        show: false
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#aaa'
+                        },
+                        emphasis: {
+                            color: '#aaa'
+                        }
+                    },
+                    hoverAnimation: false
+                }]
+            }]
         };
 
         return (
