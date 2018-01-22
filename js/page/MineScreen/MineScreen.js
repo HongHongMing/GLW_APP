@@ -22,7 +22,7 @@ export default class MineScreen extends Component {
         <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
         </TouchableOpacity>,
         header: <NavigationBar
-            title={'工作区间'} style={{backgroundColor:'#3396FB'}}
+            title={''} style={{backgroundColor:'#3396FB'}}
             statusBar={{backgroundColor:'#3396FB'}}
             rightButton = {<TouchableOpacity onPress={() => {console.log("跳转")}}>
                 <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
@@ -40,6 +40,12 @@ export default class MineScreen extends Component {
     goTeam = (e) =>{
         const {navigate} = this.props.navigation;
         navigate('TeamInformation');
+    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            noon:4375
+        };
     }
     render() {
         var dataStyle = {
@@ -86,7 +92,7 @@ export default class MineScreen extends Component {
                     }
                 },
                 data: [{
-                    value: 80,
+                    value: 70,
                     name: '完成率',
                     label: {
                         normal: {
@@ -97,7 +103,7 @@ export default class MineScreen extends Component {
                         }
                     }
                 }, {
-                    value: 20,
+                    value: 30,
                     name: '占位',
                     label: {
                         normal: {
@@ -123,7 +129,7 @@ export default class MineScreen extends Component {
                 }]
             }]
         };
-
+        setInterval(()=>{this.setState({noon:this.state.noon+1})},60000)
         return (
             <Container>
                 <Content>
@@ -135,24 +141,24 @@ export default class MineScreen extends Component {
                         <Image source={require('../../../res/images/LOGO-Model.png')} style={styles.LogoImage}/>
                         <Text style={{color:'#ffffff',fontSize:18,paddingTop:0,paddingBottom:10}}>欢迎您,管理员</Text>
                     </View>
-                    <Content >
-                        <List style={{shadowColor:'#000',marginBottom:5,shadowOffset:{'width':0,'height':2},shadowOpacity:0.1,shadowRadius:1.5,elevation:3,backgroundColor:'#fff',
-                        }}>
-                            <ListItem icon onPress={()=>{this.goCurrentAlarm()}}>
-                                <Left>
-                                    <Icon name='ios-alert' style={{color:'red'}}/>
-                                </Left>
-                                <Body>
-                                <Text style={{color:'#191F25'}}>设备故障:</Text>
-                                </Body>
-                                <Right>
-                                    <Badge style={{backgroundColor:'red',height:20,width:20,justifyContent:'center',alignItems:'center',}}>
-                                        <Text style={{color:'#fff'}}>2</Text>
-                                    </Badge>
-                                </Right>
-                            </ListItem>
-                        </List>
-                    </Content>
+                    {/*<Content >*/}
+                        {/*<List style={{shadowColor:'#000',marginBottom:5,shadowOffset:{'width':0,'height':2},shadowOpacity:0.1,shadowRadius:1.5,elevation:3,backgroundColor:'#fff',*/}
+                        {/*}}>*/}
+                            {/*<ListItem icon onPress={()=>{this.goCurrentAlarm()}}>*/}
+                                {/*<Left>*/}
+                                    {/*<Icon name='ios-alert' style={{color:'red'}}/>*/}
+                                {/*</Left>*/}
+                                {/*<Body>*/}
+                                {/*<Text style={{color:'#191F25'}}>设备故障:</Text>*/}
+                                {/*</Body>*/}
+                                {/*<Right>*/}
+                                    {/*<Badge style={{backgroundColor:'red',height:20,width:20,justifyContent:'center',alignItems:'center',}}>*/}
+                                        {/*<Text style={{color:'#fff'}}>2</Text>*/}
+                                    {/*</Badge>*/}
+                                {/*</Right>*/}
+                            {/*</ListItem>*/}
+                        {/*</List>*/}
+                    {/*</Content>*/}
                     <Content style={{paddingRight:10,paddingLeft:10}}>
                         <Card style={[styles.Card]}>
                             <CardItem header style={{paddingTop:5,paddingBottom:10}}>
@@ -161,38 +167,38 @@ export default class MineScreen extends Component {
                             <CardItem style={styles.Padding}>
                                 <Icon name='ios-clipboard-outline' style={styles.IconColor}/>
                                 <Text style={[styles.CardText,styles.OutputText]}>早班产量:</Text>
-                                <Text style={[styles.CardText,styles.OutputText]}>47264</Text>
-                                <Text style={[styles.CardText,styles.OutputText]}>片</Text>
+                                <Text style={styles.CardText}>4726</Text>
+                                <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
                                 <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
                                 <Text style={styles.CardText}>良  品  率：</Text>
-                                <Text style={styles.CardText}>68%</Text>
+                                <Text style={styles.CardText}>100%</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
                                 <Icon name='ios-clipboard-outline' style={styles.IconColor} />
                                 <Text style={[styles.CardText,styles.OutputText]}>中班产量:</Text>
-                                <Text style={styles.CardText}>84726</Text>
+                                <Text style={styles.CardText}>{this.state.noon}</Text>
                                 <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
                                 <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
-                                <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
+                                <Text style={[styles.CardText ,styles.marginRight]}>88%</Text>
                                 <Text style={styles.CardText}>良  品  率：</Text>
-                                <Text style={styles.CardText}>68%</Text>
+                                <Text style={styles.CardText}>99%</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
                                 <Icon name='ios-clipboard-outline' style={styles.IconColor} />
                                 <Text style={[styles.CardText,styles.OutputText]}>晚班产量:</Text>
-                                <Text style={styles.CardText}>72649</Text>
+                                <Text style={styles.CardText}>0</Text>
                                 <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
                                 <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
-                                <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
+                                <Text style={[styles.CardText ,styles.marginRight]}>100%</Text>
                                 <Text style={styles.CardText}>良  品  率：</Text>
-                                <Text style={styles.CardText}>68%</Text>
+                                <Text style={styles.CardText}>0%</Text>
                             </CardItem>
                             <CardItem footer style={{alignItems:'center',flex:1,paddingTop:0,paddingBottom:0,paddingLeft:0,paddingRight:0}}>
                                 <TouchableOpacity onPress={() => {this.goTeam()}} style={{justifyContent:'center',width:'100%',backgroundColor:'#F6F6F6',alignItems:'center',height:40}}>

@@ -22,10 +22,10 @@ class Parameter_detai_2 extends Component {
             ReportID:this.props.navigation.state.params.ReportID,
             refreshing: false,
             data:[],
-            DeviceBootTime:[8,8,8],
-            ProcessingTime: [7,7,7],
-            Downtime:[0.3,0.4,0.5],
-            FaultTime:[0.3,0.2,0.1],
+            DeviceBootTime:[8,8,0],
+            ProcessingTime: [7,7,0],
+            Downtime:[0.3,0.4,0],
+            FaultTime:[0.3,0.2,0],
         };
         detailMode.find((value, index, arr) => {
             if(value.ReportID == this.state.ReportID){

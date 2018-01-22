@@ -46,16 +46,16 @@ class workingSchedule extends Component {
                                 <Text style={styles.ListTitle}>流程卡号：</Text><Text>E456312</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>总  卡  数：</Text><Text></Text>
+                                <Text style={styles.ListTitle}>总  卡  数：</Text><Text>13000</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>已完成数：</Text><Text></Text>
+                                <Text style={styles.ListTitle}>已完成数：</Text><Text>9123</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>未完成数：</Text><Text></Text>
+                                <Text style={styles.ListTitle}>未完成数：</Text><Text>3877</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>完  成  率：</Text><Text>80%</Text>
+                                <Text style={styles.ListTitle}>完  成  率：</Text><Text>70%</Text>
                             </View>
                         </View>
                         <View style={{backgroundColor:'#ffffff',borderRadius:5,marginTop:10,padding:10}}>
@@ -66,13 +66,13 @@ class workingSchedule extends Component {
                                 <Text style={styles.ListTitle}>流程卡号：</Text><Text>D170709074.02/B</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>开始加工：</Text><Text>2017/7/1  12:00:00</Text>
+                                <Text style={styles.ListTitle}>开始加工：</Text><Text>2018/1/19  12:00:00</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>完成时间：</Text><Text>2017/7/2  12:00:00</Text>
+                                <Text style={styles.ListTitle}>完成时间：</Text><Text>2017/1/20 12:00:00</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>总  片  数：</Text><Text>100</Text>
+                                <Text style={styles.ListTitle}>总  片  数：</Text><Text>10000</Text>
                             </View>
                             {/*<View>*/}
                                 {/*<TouchableOpacity onPress={() => {console.log(1)}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>*/}

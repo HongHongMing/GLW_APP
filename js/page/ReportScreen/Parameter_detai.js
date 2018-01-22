@@ -22,9 +22,9 @@ class Parameter_detail extends Component {
             ReportID:this.props.navigation.state.params.ReportID,
             refreshing: false,
             data:[],
-            ActualWorkingHours:[8.5,9.1,7.6],
-            TheoryWorkingHours: [10,10,10,],
-            Yield:[1.18,1.10,1.32],
+            ActualWorkingHours:[8.5,9.1,0],
+            TheoryWorkingHours: [10,10,0,],
+            Yield:[0.9,0.9,0],
         };
         detailMode.find((value, index, arr) => {
             if(value.ReportID == this.state.ReportID){

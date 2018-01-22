@@ -47,7 +47,7 @@ class TeamInformation extends Component {
                                 <Text style={styles.text}>早班</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>实际产能：</Text><Text>47264</Text>
+                                <Text style={styles.ListTitle}>实际产能：</Text><Text>4726</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
                                 <Text style={styles.ListTitle}>实际工时：</Text><Text></Text>
@@ -56,37 +56,37 @@ class TeamInformation extends Component {
                                 <Text style={styles.ListTitle}>达  成  率：</Text><Text>89%</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>68%</Text>
+                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>100%</Text>
                             </View>
                             <View>
                                 <Text style={styles.text}>中班</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>实际产能：</Text><Text>84726</Text>
+                                <Text style={styles.ListTitle}>实际产能：</Text><Text>4375</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
                                 <Text style={styles.ListTitle}>实际工时：</Text><Text></Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>89%</Text>
+                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>88%</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>68%</Text>
+                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>99%</Text>
                             </View>
                             <View>
                                 <Text style={styles.text}>晚班</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>实际产能：</Text><Text>72649</Text>
+                                <Text style={styles.ListTitle}>实际产能：</Text><Text>0</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
                                 <Text style={styles.ListTitle}>实际工时：</Text><Text></Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>89%</Text>
+                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>100%</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>68%</Text>
+                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>0%</Text>
                             </View>
                             <View>
                                 <TouchableOpacity onPress={() => {this.goTeam()}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>
