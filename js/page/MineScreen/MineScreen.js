@@ -19,6 +19,14 @@ export default class MineScreen extends Component {
         headerStyle:{backgroundColor:'#red'},
         header:null
         })
+    goDetails = (e) =>{
+        const {navigate} = this.props.navigation;
+        navigate('workingSchedule');
+    }
+    goTeam = (e) =>{
+        const {navigate} = this.props.navigation;
+        navigate('TeamInformation');
+    }
     render() {
         var dataStyle = {
             normal: {
@@ -42,43 +50,47 @@ export default class MineScreen extends Component {
         };
         option = {
             tooltip: {
+                show:false,
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
             },
+            color: ['#3396FB', '#f0f0f0'],
             legend: {
-                orient: 'vertical',
+                show: false,
+                itemGap: 12,
                 left: 'left',
                 data: ['占有率']
             },
             series: [{
                 name: '饼图二',
                 type: 'pie',
-                radius: ['60%', '70%'],
+                radius: [32, 42],
+                hoverAnimation: false,
                 label: {
                     normal: {
                         position: 'center'
                     }
                 },
                 data: [{
-                    value: 20,
-                    name: '占有率',
+                    value: 80,
+                    name: '完成率',
                     label: {
                         normal: {
                             formatter: '{d} %',
                             textStyle: {
-                                fontSize: 50
+                                fontSize: 20
                             }
                         }
                     }
                 }, {
-                    value: 80,
+                    value: 20,
                     name: '占位',
                     label: {
                         normal: {
                             formatter: '\n完成率',
                             textStyle: {
                                 color: '#555',
-                                fontSize: 20
+                                fontSize: 15
                             }
                         }
                     },
@@ -134,20 +146,20 @@ export default class MineScreen extends Component {
                         </List>
                     </Content>
                     <Content style={{paddingRight:10,paddingLeft:10}}>
-                        <Card style={[styles.Card,styles.Padding]}>
+                        <Card style={[styles.Card]}>
                             <CardItem header style={{paddingTop:5,paddingBottom:10}}>
-                                <Text style={{fontSize:16,color:'#191F25',fontWeight:'bold'}}>实时状态</Text>
+                                <Text style={{fontSize:16,color:'#191F25',fontWeight:'bold'}}>班组生产信息</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
                                 <Icon name='ios-clipboard-outline' style={styles.IconColor}/>
                                 <Text style={[styles.CardText,styles.OutputText]}>早班产量:</Text>
-                                <Text style={styles.CardText}>47264</Text>
-                                <Text style={styles.CardText}>片</Text>
+                                <Text style={[styles.CardText,styles.OutputText]}>47264</Text>
+                                <Text style={[styles.CardText,styles.OutputText]}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
-                                <Text style={[styles.CardText,styles.marginLeft]}>达成率：</Text>
+                                <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
-                                <Text style={styles.CardText}>良品率：</Text>
+                                <Text style={styles.CardText}>良  品  率：</Text>
                                 <Text style={styles.CardText}>68%</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
@@ -157,9 +169,9 @@ export default class MineScreen extends Component {
                                 <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
-                                <Text style={[styles.CardText,styles.marginLeft]}>达成率：</Text>
+                                <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
-                                <Text style={styles.CardText}>良品率：</Text>
+                                <Text style={styles.CardText}>良  品  率：</Text>
                                 <Text style={styles.CardText}>68%</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
@@ -169,10 +181,15 @@ export default class MineScreen extends Component {
                                 <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
-                                <Text style={[styles.CardText,styles.marginLeft]}>达成率：</Text>
+                                <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
-                                <Text style={styles.CardText}>良品率：</Text>
+                                <Text style={styles.CardText}>良  品  率：</Text>
                                 <Text style={styles.CardText}>68%</Text>
+                            </CardItem>
+                            <CardItem footer style={{alignItems:'center',flex:1,paddingTop:0,paddingBottom:0,paddingLeft:0,paddingRight:0}}>
+                                <TouchableOpacity onPress={() => {this.goTeam()}} style={{justifyContent:'center',width:'100%',backgroundColor:'#F6F6F6',alignItems:'center',height:40}}>
+                                    <Text style={{color:'#C8C8CF'}}>查看更多</Text>
+                                </TouchableOpacity>
                             </CardItem>
                         </Card>
                         <Card style={styles.Card}>
@@ -189,12 +206,12 @@ export default class MineScreen extends Component {
                                     <Text style={{fontSize:14,justifyContent:'center',marginTop:10,color:'#191F25',}}>流程号</Text>
                                 </View>
                                 <View style={{alignItems:'center',width:'50%'}}>
-                                    <Echarts option={option} height={100}/>
+                                    <Echarts option={option} height={100} width={100}/>
                                 </View>
                                 </Body>
                             </CardItem>
                             <CardItem footer style={{alignItems:'center',flex:1,paddingTop:0,paddingBottom:0,paddingLeft:0,paddingRight:0}}>
-                                <TouchableOpacity onPress={() => {console.log("跳转")}} style={{justifyContent:'center',width:'100%',backgroundColor:'#F6F6F6',alignItems:'center',height:40}}>
+                                <TouchableOpacity onPress={() => {this.goDetails()}} style={{justifyContent:'center',width:'100%',backgroundColor:'#F6F6F6',alignItems:'center',height:40}}>
                                     <Text style={{color:'#C8C8CF'}}>查看更多</Text>
                                 </TouchableOpacity>
                             </CardItem>

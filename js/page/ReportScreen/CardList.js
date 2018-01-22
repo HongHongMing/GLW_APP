@@ -25,11 +25,11 @@ class CardList extends Component {
                     </CardItem>
                     <CardItem style={styles.CardItem}>
                         <Text style={styles.TitleText}>损坏原因：</Text>
-                        <Text style={styles.ContentText}>他老了</Text>
+                        <Text style={styles.ContentText}></Text>
                     </CardItem>
                     <CardItem style={styles.CardItem}>
                         <Text style={styles.TitleText}>备        注：</Text>
-                        <Text style={styles.ContentText}>设备太low了，赶紧换</Text>
+                        <Text style={styles.ContentText}></Text>
                     </CardItem>
                 </Card>
             </Content>

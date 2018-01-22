@@ -31,6 +31,8 @@ import Parameter_detai_2 from '../../js/page/ReportScreen/Parameter_detai_2'
 import Parameter_detai_3 from '../../js/page/ReportScreen/Parameter_detai_3'
 import {EquipmentList} from '../../js/page/StateScreen/EquipmentList'
 import Equipment_detail from  '../../js/page/StateScreen/Equipment_detail'
+import workingSchedule from '../../js/page/MineScreen/workingSchedule'
+import TeamInformation from  '../../js/page/MineScreen/TeamInformation'
 const AppNavigation  = StackNavigator({
     Launch: {
         screen: Launch,
@@ -67,6 +69,12 @@ const AppNavigation  = StackNavigator({
     },
     Equipment_detail:{
         screen:Equipment_detail
+    },
+    workingSchedule:{
+        screen:workingSchedule
+    },
+    TeamInformation:{
+        screen:TeamInformation
     }
 },{
     initialRouteName:'Launch', // 默认显示界面

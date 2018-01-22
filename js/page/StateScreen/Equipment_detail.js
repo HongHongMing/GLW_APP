@@ -36,7 +36,6 @@ class Equipment_detail extends Component {
         this.state = {
             itemInfos:itemInfos.find(itemInfos=>itemInfos.EquipmentID==this.props.navigation.state.params.EquipmentID)
         };
-        console.log(this.state.itemInfos)
     }
 
     render () {

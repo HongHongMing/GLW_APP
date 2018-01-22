@@ -13,7 +13,14 @@ import {
     Thumbnail, Text, Button, Icon, Left,
     Body ,Right,List,Separator,ListItem
 } from 'native-base';
-import PopupDialog from 'react-native-popup-dialog';
+import PopupDialog, {
+    DialogTitle,
+    DialogButton,
+    SlideAnimation,
+    ScaleAnimation,
+    FadeAnimation,
+} from 'react-native-popup-dialog';
+const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
 import CardList from './CardList'
 
 var data = [
@@ -26,17 +33,7 @@ var data = [
     {key: 7, title: "we"},
     {key: 8, title: "er"},
     {key: 9, title: "we"},
-    {key: 10, title: "er"},
-    {key: 11, title: "we"},
-    {key: 12, title: "er"},
-    {key: 13, title: "we"},
-    {key: 14, title: "er"},
-    {key: 15, title: "er"},
-    {key: 16, title: "er"},
-    {key: 17, title: "er"},
-    {key: 18, title: "er"},
-    {key: 19, title: "er"},
-    {key: 20, title: "er"},
+    {key: 10, title: "er"}
 
  ];
 // for (var i = 1; i <= 15; i++) {
@@ -111,8 +108,8 @@ export default class Parameter_detai_3 extends Component {
                 <List style={styles.BottomList}>
                     <ListItem avatar style={{backgroundColor:'#fff',marginLeft:0}}>
                         <Body>
-                        <Text>损耗数量：4</Text>
-                        <Text note>总数量：20</Text>
+                        <Text>损耗数量：2</Text>
+                        <Text note>总数量：10</Text>
                         </Body>
                         <Right style={{paddingTop:0,paddingBottom:0}}>
                             <TouchableOpacity onPress={() => {this.popupDialog.show();console.log(data)}}
@@ -129,30 +126,30 @@ export default class Parameter_detai_3 extends Component {
                     // dismissOnTouchOutside=false
                     ref={(popupDialog) => { this.popupDialog = popupDialog; }}
                     width="0.8"
+                    dialogAnimation={slideAnimation}
                     // height="0.34"
                     // overlayPointerEvents="none"
                 >
-                    <View style={styles.dialogContentView}>
-                        <Content>
+                    <View>
                             <TouchableOpacity onPress={() => {this.popupDialog.dismiss()}}
                                               style={styles.BtnPopClose}>
-                                <Icon name='ios-close-outline' style={{color:'#C8C8CF'}} />
+                                <Icon name='ios-close-outline' style={{color:'#C8C8CF',fontSize:30}} />
                             </TouchableOpacity>
                             <ListItem style={styles.CardItem}>
-                                <Text style={styles.TitleText}>总数量：</Text>
-                                <Text style={styles.ContentText}>20</Text>
+                                <Text style={styles.TitleText}>总  数  量：</Text>
+                                <Text style={styles.ContentText}>10</Text>
                             </ListItem>
                             <ListItem style={styles.CardItem}>
-                                <Text style={styles.TitleText}>损耗率：</Text>
+                                <Text style={styles.TitleText}>损  耗  率：</Text>
                                 <Text style={styles.ContentText}>20%</Text>
                             </ListItem>
                             <ListItem style={styles.CardItem}>
                                 <Text style={styles.TitleText}>完好数量：</Text>
-                                <Text style={styles.ContentText}>16</Text>
+                                <Text style={styles.ContentText}>8</Text>
                             </ListItem>
                             <ListItem style={styles.CardItem}>
                                 <Text style={styles.TitleText}>损坏数量：</Text>
-                                <Text style={styles.ContentText}>4</Text>
+                                <Text style={styles.ContentText}>2</Text>
                             </ListItem>
                             <ListItem style={styles.CardItem}>
                                 <Text style={styles.TitleText}>损坏时间：</Text>
@@ -160,9 +157,8 @@ export default class Parameter_detai_3 extends Component {
                             </ListItem>
                             <ListItem style={styles.CardItem}>
                                 <Text style={styles.ContentText}>损坏原因TOP1：</Text>
-                                <Text style={styles.ContentText}>设备太low了，赶紧换</Text>
+                                <Text style={styles.ContentText}></Text>
                             </ListItem>
-                        </Content>
                     </View>
                 </PopupDialog>
             </View>
@@ -185,7 +181,7 @@ const styles = StyleSheet.create({
     BtnPopClose:{
         paddingRight:10,
         alignItems: 'flex-end',
-        height:20
+        height:30
     },
     Btndetails:{
         paddingTop:0,
