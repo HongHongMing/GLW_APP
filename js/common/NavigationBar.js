@@ -100,8 +100,9 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     title: {
-        fontSize: 20,
+        fontSize: 18,
         color: '#FFFFFF',
+        fontWeight:'500'
     },
     navBarButton: {
         alignItems: 'center',

@@ -53,6 +53,7 @@ export default class Parameter_detai_3 extends Component {
     }
     static navigationOptions = {
         title:'玻璃损坏统计表',
+        headerRight:<View/>,
     }
     navigationOptions = {
         title:'玻璃损坏统计表',

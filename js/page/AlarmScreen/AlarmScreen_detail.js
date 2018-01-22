@@ -24,7 +24,8 @@ class AlarmScreen_detail extends Component {
         </TouchableOpacity>;
     }
     static navigationOptions = {
-        title: '报警详情'
+        title: '报警详情',
+        headerRight:<View/>,
     }
     constructor(props) {
         super(props);

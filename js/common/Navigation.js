@@ -33,6 +33,7 @@ import {EquipmentList} from '../../js/page/StateScreen/EquipmentList'
 import Equipment_detail from  '../../js/page/StateScreen/Equipment_detail'
 import workingSchedule from '../../js/page/MineScreen/workingSchedule'
 import TeamInformation from  '../../js/page/MineScreen/TeamInformation'
+import {currentAlarm} from  '../../js/page/MineScreen/currentAlarm'
 const AppNavigation  = StackNavigator({
     Launch: {
         screen: Launch,
@@ -75,6 +76,9 @@ const AppNavigation  = StackNavigator({
     },
     TeamInformation:{
         screen:TeamInformation
+    },
+    currentAlarm:{
+        screen:currentAlarm
     }
 },{
     initialRouteName:'Launch', // 默认显示界面
@@ -86,7 +90,7 @@ const AppNavigation  = StackNavigator({
             elevation: 0
         },
         tintColor:'#ffffff',
-        headerRight:<View/>,
+      //  headerRight:<View/>,
         // headerLeft:<View/>,
         headerTintColor:'#ffffff',
         headerTitleStyle: { fontSize: 18, alignSelf: "center", color: "#ffffff" },

@@ -16,9 +16,23 @@ export default class MineScreen extends Component {
     //     },
     // }
     static navigationOptions = ({navigation,screenProps}) => ({
-        headerStyle:{backgroundColor:'#red'},
-        header:null
+        title: '工作区间',
+        headerLeft:<View/>,
+        headerRight:<TouchableOpacity onPress={() => {console.log("跳转")}}>
+        <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
+        </TouchableOpacity>,
+        header: <NavigationBar
+            title={'工作区间'} style={{backgroundColor:'#3396FB'}}
+            statusBar={{backgroundColor:'#3396FB'}}
+            rightButton = {<TouchableOpacity onPress={() => {console.log("跳转")}}>
+                <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
+            </TouchableOpacity>}
+        />
         })
+    goCurrentAlarm = (e) =>{
+        const {navigate} = this.props.navigation;
+        navigate('currentAlarm');
+    }
     goDetails = (e) =>{
         const {navigate} = this.props.navigation;
         navigate('workingSchedule');
@@ -117,12 +131,6 @@ export default class MineScreen extends Component {
                         title={'设备详情'} style={{backgroundColor:'#3396FB',height:0}}
                         statusBar={{backgroundColor:'#3396FB'}}
                     />
-                    <View style={{backgroundColor:'#3396FB'}}>
-                        <TouchableOpacity onPress={() => {console.log("跳转")}}
-                                          style={styles.BtnSetUp}>
-                            <Text style={{color:'#ffffff',fontSize:18}} >设置</Text>
-                        </TouchableOpacity>
-                    </View>
                     <View style={{justifyContent:"center",alignItems:'center',backgroundColor:'#3396FB',height:150}}>
                         <Image source={require('../../../res/images/LOGO-Model.png')} style={styles.LogoImage}/>
                         <Text style={{color:'#ffffff',fontSize:18,paddingTop:0,paddingBottom:10}}>欢迎您,管理员</Text>
@@ -130,7 +138,7 @@ export default class MineScreen extends Component {
                     <Content >
                         <List style={{shadowColor:'#000',marginBottom:5,shadowOffset:{'width':0,'height':2},shadowOpacity:0.1,shadowRadius:1.5,elevation:3,backgroundColor:'#fff',
                         }}>
-                            <ListItem icon>
+                            <ListItem icon onPress={()=>{this.goCurrentAlarm()}}>
                                 <Left>
                                     <Icon name='ios-alert' style={{color:'red'}}/>
                                 </Left>

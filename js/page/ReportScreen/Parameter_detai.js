@@ -35,6 +35,7 @@ class Parameter_detail extends Component {
     }
     static navigationOptions = {
         title:'生产班组产能统计表',
+        headerRight:<View/>,
     }
     navigationOptions = {
         title:'生产班组产能统计表',

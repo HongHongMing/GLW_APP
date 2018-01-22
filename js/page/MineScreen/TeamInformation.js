@@ -32,6 +32,10 @@ class TeamInformation extends Component {
             itemInfos:''
         };
     }
+    goTeam = (e) =>{
+        const {navigate} = this.props.navigation;
+        navigate('Parameter_detai_2',{ReportID:2});
+    }
 
     render () {
         return (
@@ -85,7 +89,7 @@ class TeamInformation extends Component {
                                 <Text style={styles.ListTitle}>良  品  率：</Text><Text>68%</Text>
                             </View>
                             <View>
-                                <TouchableOpacity onPress={() => {console.log(1)}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>
+                                <TouchableOpacity onPress={() => {this.goTeam()}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>
                                     <Text style={{color:'#3396FB'}}>查看更多</Text>
                                 </TouchableOpacity>
                             </View>

@@ -36,6 +36,7 @@ class Parameter_detai_2 extends Component {
     }
     static navigationOptions = {
         title:'设备运行状态统计表',
+        headerRight:<View/>,
     }
     navigationOptions = {
         title:'设备运行状态统计表',

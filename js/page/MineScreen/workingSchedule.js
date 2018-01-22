@@ -74,11 +74,11 @@ class workingSchedule extends Component {
                             <View style={[styles.FdR,styles.P4]}>
                                 <Text style={styles.ListTitle}>总  片  数：</Text><Text>100</Text>
                             </View>
-                            <View>
-                                <TouchableOpacity onPress={() => {console.log(1)}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>
-                                    <Text style={{color:'#3396FB'}}>查看更多</Text>
-                                </TouchableOpacity>
-                            </View>
+                            {/*<View>*/}
+                                {/*<TouchableOpacity onPress={() => {console.log(1)}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>*/}
+                                    {/*<Text style={{color:'#3396FB'}}>查看更多</Text>*/}
+                                {/*</TouchableOpacity>*/}
+                            {/*</View>*/}
                         </View>
                     </ScrollView>
                 </View>
