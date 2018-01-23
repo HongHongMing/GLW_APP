@@ -24,7 +24,8 @@ class AlarmScreen_detail extends Component {
         </TouchableOpacity>;
     }
     static navigationOptions = {
-        title: '开发中'
+        title: '报警详情',
+        headerRight:<View/>,
     }
     constructor(props) {
         super(props);
@@ -40,11 +41,11 @@ class AlarmScreen_detail extends Component {
         const date = [];
         return (
             <View style={styles.container}>
-                <NavigationBar
-                    title={'报警详情'} style={{backgroundColor:'#3396FB'}}
-                    leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))}
-                    statusBar={{backgroundColor:'#3396FB'}}
-                />
+                {/*<NavigationBar*/}
+                     {/*title={'报警详情'} style={{backgroundColor:'#3396FB'}}*/}
+                    {/*leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))}*/}
+                    {/*statusBar={{backgroundColor:'#3396FB'}}*/}
+                {/*/>*/}
                 <Container style={{ paddingTop:10}}>
                     <Content>
                         <List>

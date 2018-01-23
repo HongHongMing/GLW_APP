@@ -16,16 +16,24 @@
  * limitations under the License.
  *
  */
-
+import React, { Component } from "react";
+import { View } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import Launch from '../../js/page/launch/launch';
 import Tabbar from  '../../js/common/Tabbar';
 import StateScreen_tab  from '../../js/page/StateScreen/StateScreen_tab'
 import AlarmScreen_detail from '../../js/page/AlarmScreen/AlarmScreen_detail'
 import {AlarmFilter} from '../../js/page/AlarmScreen/AlarmFilter'
-import BanBie from '../../js/page/ReportScreen/BanBie'
-import ReportScreen_tab from '../../js/page/ReportScreen/ReportScreen_tab'
+import BanBie from '../page/ReportScreen/BanBie'
 import ReportScreenTabs from '../../js/page/ReportScreen/ReportScreenTabs'
+import Parameter_detai from '../../js/page/ReportScreen/Parameter_detai'
+import Parameter_detai_2 from '../../js/page/ReportScreen/Parameter_detai_2'
+import Parameter_detai_3 from '../../js/page/ReportScreen/Parameter_detai_3'
+import {EquipmentList} from '../../js/page/StateScreen/EquipmentList'
+import Equipment_detail from  '../../js/page/StateScreen/Equipment_detail'
+import workingSchedule from '../../js/page/MineScreen/workingSchedule'
+import TeamInformation from  '../../js/page/MineScreen/TeamInformation'
+import {currentAlarm} from  '../../js/page/MineScreen/currentAlarm'
 const AppNavigation  = StackNavigator({
     Launch: {
         screen: Launch,
@@ -45,31 +53,58 @@ const AppNavigation  = StackNavigator({
     BanBie:{
         screen:BanBie
     },
-    ReportScreen_tab:{
-        screen:ReportScreen_tab
-    },
     ReportScreenTabs:{
-        screen:ReportScreenTabs
+        screen:ReportScreenTabs,
+    },
+    Parameter_detai:{
+        screen:Parameter_detai
+    },
+    Parameter_detai_2:{
+        screen:Parameter_detai_2
+    },
+    Parameter_detai_3:{
+        screen:Parameter_detai_3
+    },
+    EquipmentList:{
+        screen:EquipmentList
+    },
+    Equipment_detail:{
+        screen:Equipment_detail
+    },
+    workingSchedule:{
+        screen:workingSchedule
+    },
+    TeamInformation:{
+        screen:TeamInformation
+    },
+    currentAlarm:{
+        screen:currentAlarm
     }
 },{
-    initialRouteName: 'Launch', // 默认显示界面
+    initialRouteName:'Launch', // 默认显示界面
     navigationOptions: {  // 屏幕导航的默认选项, 也可以在组件内用 static navigationOptions 设置(会覆盖此处的设置)
-        headerBackTitle: null,  // 左上角返回键文字
+        headerBackTitle:'返回',  // 左上角返回键文字
         headerStyle: {
-            backgroundColor: '#FFFFFF'
+            backgroundColor: '#3396FB',
+            shadowOpacity:0,
+            elevation: 0
         },
-        headerTitleStyle: {
-            color: '#191F25'
-        },
+        tintColor:'#ffffff',
+      //  headerRight:<View/>,
+        // headerLeft:<View/>,
+        headerTintColor:'#ffffff',
+        headerTitleStyle: { fontSize: 18, alignSelf: "center", color: "#ffffff" },
         cardStack: {
             gesturesEnabled: true
         }
     },
     mode: 'card',  // 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)
-    headerMode: 'none', // 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏
+    headerMode: 'screen', // 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏
     onTransitionStart: ()=>{ console.log('导航栏切换开始'); },  // 回调
     onTransitionEnd: ()=>{ console.log('导航栏切换结束'); }  // 回调
 
 });
 
+
 export default AppNavigation;
+

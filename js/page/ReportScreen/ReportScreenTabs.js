@@ -1,13 +1,19 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, {Component} from 'react';
 import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import {ReportScreen} from './ReportScreen'
+import {Parameter} from './Parameter'
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
-
-
+import NavigationBar from '../../common/NavigationBar';
+import AppNavigation from '../../../js/common/Navigation'
+import {
+    View,
+    StyleSheet,
+    Image,
+    TouchableOpacity,
+    Text
+} from 'react-native';
 const ProfileScreen = () => (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Profile Screen</Text>
+        <Text>production Screen</Text>
     </View>
 );
 const productionScreen = () => (
@@ -18,9 +24,16 @@ const productionScreen = () => (
 
 const ReportScreenTabs = TabNavigator({
     ReportScreen: {
-        screen: ReportScreen,
+        screen: Parameter,
         navigationOptions: {
+            headerTitle:'数据报表',
             tabBarLabel: '台账',
+            headerRight:<View/>,
+            headerLeft:<View/>,
+            headerStyle:{
+                shadowOpacity:0,
+                elevation: 0
+            },
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-home' : 'ios-home-outline'}
@@ -34,6 +47,13 @@ const ReportScreenTabs = TabNavigator({
         screen: ProfileScreen,
         navigationOptions: {
             tabBarLabel: '记录',
+            headerTitle:'数据报表',
+            headerRight:<View/>,
+            headerLeft:<View/>,
+            headerStyle:{
+                shadowOpacity:0,
+                elevation: 0
+            },
             tabBarIcon: ({ tintColor, focused }) => (
                 <Ionicons
                     name={focused ? 'ios-person' : 'ios-person-outline'}
@@ -47,6 +67,13 @@ const ReportScreenTabs = TabNavigator({
     screen: productionScreen,
         navigationOptions: {
         tabBarLabel: '生产',
+            headerTitle:'数据报表',
+            headerRight:<View/>,
+            headerLeft:<View/>,
+            headerStyle:{
+                shadowOpacity:0,
+                elevation: 0
+            },
             tabBarIcon: ({ tintColor, focused }) => (
             <Ionicons
                 name={focused ? 'ios-person' : 'ios-person-outline'}
@@ -57,17 +84,15 @@ const ReportScreenTabs = TabNavigator({
     },
 },
 },{
+
     tabBarPosition:'top',
     lazy: true,
     initialRouteName:'ReportScreen',
     backBehavior:'none',
     tabBarOptions: {
-        labelStyle: {
-            margin: 0,
-            padding: 0,
-            fontSize: 16,
-        },
         style: {
+            shadowOpacity:0,
+            elevation: 0,
             margin: 0,
             padding: 0,
             borderTopColor: "#3396FB",
@@ -92,5 +117,4 @@ const ReportScreenTabs = TabNavigator({
         upperCaseLabel: false,
     },
 });
-
 export default ReportScreenTabs;
