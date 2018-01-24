@@ -23,7 +23,7 @@ const StatusBarShape = {
 };
 export default class NavigationBar extends Component {
     static propTypes = {
-        style: View.propTypes.style,
+        style: PropTypes.style,
         title: PropTypes.string,
         titleView: PropTypes.element,
         hide: PropTypes.bool,
@@ -83,12 +83,15 @@ export default class NavigationBar extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'gray',
+        // height:0,
+
     },
     navBar: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         height: Platform.OS === 'ios' ? NAV_BAR_HEIGHT_IOS : NAV_BAR_HEIGHT_ANDROID,
+        // height:0
     },
     navBarTitleContainer: {
         alignItems: 'center',

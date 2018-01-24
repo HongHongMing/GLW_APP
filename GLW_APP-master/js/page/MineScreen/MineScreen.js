@@ -21,13 +21,14 @@ export default class MineScreen extends Component {
         headerRight:<TouchableOpacity onPress={() => {console.log("跳转")}}>
         <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
         </TouchableOpacity>,
-        header: <NavigationBar
-            title={''} style={{backgroundColor:'#3396FB'}}
-            statusBar={{backgroundColor:'#3396FB'}}
-            rightButton = {<TouchableOpacity onPress={() => {console.log("跳转")}}>
-                <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
-            </TouchableOpacity>}
-        />
+        // header: <NavigationBar
+        //     title={''}
+        //     // style={{backgroundColor:'#3396FB'}}
+        //     statusBar={{backgroundColor:'#3396FB'}}
+        //     rightButton = {<TouchableOpacity onPress={() => {console.log("跳转")}}>
+        //         <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
+        //     </TouchableOpacity>}
+        // />
         })
     goCurrentAlarm = (e) =>{
         const {navigate} = this.props.navigation;
@@ -134,7 +135,8 @@ export default class MineScreen extends Component {
             <Container>
                 <Content>
                     <NavigationBar
-                        title={'设备详情'} style={{backgroundColor:'#3396FB',height:0}}
+                        title={'设备详情'}
+                        style={{backgroundColor:'#3396FB',height:20}}
                         statusBar={{backgroundColor:'#3396FB'}}
                     />
                     <View style={{justifyContent:"center",alignItems:'center',backgroundColor:'#3396FB',height:150}}>

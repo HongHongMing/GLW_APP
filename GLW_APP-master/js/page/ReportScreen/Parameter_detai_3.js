@@ -89,10 +89,11 @@ export default class Parameter_detai_3 extends Component {
     render() {
         return (
             <View>
-                <NavigationBar
-                    title={'玻璃损坏统计表'} style={{backgroundColor:'#3396FB',height:0}}
-                    statusBar={{backgroundColor:'#3396FB'}}
-                />
+                {/*<NavigationBar*/}
+                    {/*title={'玻璃损坏统计表'}*/}
+                    {/*// style={{backgroundColor:'#3396FB',height:0}}*/}
+                    {/*statusBar={{backgroundColor:'#3396FB'}}*/}
+                {/*/>*/}
                     <FlatList style={styles.ScrollView}
                         ref={(flatList)=>this._flatList = flatList}
                         data={data}

@@ -41,7 +41,8 @@ class BanBie extends Component {
         return (
             <View>
                 <NavigationBar
-                    title={'生产班组产能效率统计表'} style={{backgroundColor:'#3396FB'}}
+                    title={'生产班组产能效率统计表'}
+                    // style={{backgroundColor:'#3396FB'}}
                     leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))}
                     statusBar={{backgroundColor:'#3396FB'}}
                 />

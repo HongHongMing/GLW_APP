@@ -14,7 +14,6 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(this, "hear", Toast.LENGTH_SHORT).show();
         ActivityCompat.requestPermissions(this, new String[]{android
         .Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }

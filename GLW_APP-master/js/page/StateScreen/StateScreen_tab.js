@@ -35,7 +35,8 @@ class StateScreen_tab extends Component {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title={'设备详情'} style={{backgroundColor:'#3396FB'}}
+                    title={'设备详情'}
+                    // style={{backgroundColor:'#3396FB'}}
                     leftButton={this.renderButton(require('../../../res/images/ic_arrow_back_white_36pt.png'))}
                     statusBar={{backgroundColor:'#3396FB'}}
                 />
