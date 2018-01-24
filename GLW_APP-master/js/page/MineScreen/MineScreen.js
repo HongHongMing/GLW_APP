@@ -136,7 +136,7 @@ export default class MineScreen extends Component {
                 <Content>
                     <NavigationBar
                         title={'设备详情'}
-                        style={{backgroundColor:'#3396FB',height:20}}
+                        style={{backgroundColor:'#3396FB',height:0}}
                         statusBar={{backgroundColor:'#3396FB'}}
                     />
                     <View style={{justifyContent:"center",alignItems:'center',backgroundColor:'#3396FB',height:150}}>
