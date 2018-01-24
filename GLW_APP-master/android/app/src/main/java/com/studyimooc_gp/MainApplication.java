@@ -1,6 +1,7 @@
 package com.studyimooc_gp;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.facebook.react.ReactApplication;
 import com.beefe.picker.PickerViewPackage;
@@ -44,6 +45,9 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    Context instance = getApplicationContext();
+    AppException appException = AppException.getInstance();
+    appException.init(instance);
     SoLoader.init(this, /* native exopackage */ false);
   }
 }
