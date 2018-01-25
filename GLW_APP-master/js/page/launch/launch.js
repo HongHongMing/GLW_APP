@@ -23,7 +23,9 @@ import {
     Image,
     StyleSheet,
     Text,
-    StatusBar
+    StatusBar,
+    TextInput,
+    Button
 } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
@@ -36,20 +38,33 @@ class Launch extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            user:'用户',
+            pw:'密码'
+        };
     }
-
-    componentDidMount() {
-        this.timer = setTimeout(() => {
-            //const {navigate} = this.props.navigation;
+    onButtonPress(){
+        console.log('a');
+        const {navigate} = this.props.navigation;
             const routeName = 'Tabbar';
             const reset = NavigationActions.reset({
                 index: 0,
                 actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
             });
             this.props.navigation.dispatch(reset);
-            // navigate('Tabbar');
-        }, 2000);
+            navigate('Tabbar');
+    }
+    componentDidMount() {
+        // this.timer = setTimeout(() => {
+        //     //const {navigate} = this.props.navigation;
+        //     const routeName = 'Tabbar';
+        //     const reset = NavigationActions.reset({
+        //         index: 0,
+        //         actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
+        //     });
+        //     this.props.navigation.dispatch(reset);
+        //     // navigate('Tabbar');
+        // }, 2000);
     }
 
     componentWillUnmount() {
@@ -59,10 +74,22 @@ class Launch extends Component {
     render() {
         return (
             <View style = {styles.view}>
-                <StatusBar
-                    backgroundColor="#3396FB"
+                <TextInput
+                    style={{height: 40, borderColor: 'gray', borderWidth: 1,width:200}}
+                    onChangeText={(user) => this.setState({user})}
+                    value={this.state.user}
                 />
-                <Text style = {styles.text}>欢迎使用掌中宝</Text>
+                <TextInput
+                    style={{height: 40, borderColor: 'gray', borderWidth: 1,width:200}}
+                    onChangeText={(pw) => this.setState({pw})}
+                    value={this.state.pw}
+                />
+                <Button
+                    onPress={()=>this.onButtonPress()}
+                    title="点击登录"
+                    color="#841584"
+                    accessibilityLabel="Learn more about purple"
+                />
             </View>
         );
     }
@@ -73,7 +100,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3396FB',
+        backgroundColor: '#ffffff',
     },
     text: {
         fontSize: 20,

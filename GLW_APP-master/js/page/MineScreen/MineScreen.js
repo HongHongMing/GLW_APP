@@ -130,7 +130,7 @@ export default class MineScreen extends Component {
                 }]
             }]
         };
-        setInterval(()=>{this.setState({noon:this.state.noon+1})},60000)
+        // setInterval(()=>{this.setState({noon:this.state.noon+1})},60000)
         return (
             <Container>
                 <Content>
@@ -175,7 +175,7 @@ export default class MineScreen extends Component {
                             <CardItem style={styles.Padding}>
                                 <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>89%</Text>
-                                <Text style={styles.CardText}>良  品  率：</Text>
+                                <Text style={styles.CardText}>良&nbsp;&nbsp;品&nbsp;&nbsp;率：</Text>
                                 <Text style={styles.CardText}>100%</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
@@ -185,9 +185,9 @@ export default class MineScreen extends Component {
                                 <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
-                                <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
+                                <Text style={[styles.CardText,styles.marginLeft]}>达&nbsp;&nbsp;成&nbsp;&nbsp;率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>88%</Text>
-                                <Text style={styles.CardText}>良  品  率：</Text>
+                                <Text style={styles.CardText}>良&nbsp;&nbsp;品&nbsp;&nbsp;率：</Text>
                                 <Text style={styles.CardText}>99%</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
@@ -197,9 +197,9 @@ export default class MineScreen extends Component {
                                 <Text style={styles.CardText}>片</Text>
                             </CardItem>
                             <CardItem style={styles.Padding}>
-                                <Text style={[styles.CardText,styles.marginLeft]}>达  成  率：</Text>
+                                <Text style={[styles.CardText,styles.marginLeft]}>达&nbsp;&nbsp;成&nbsp;&nbsp;率：</Text>
                                 <Text style={[styles.CardText ,styles.marginRight]}>100%</Text>
-                                <Text style={styles.CardText}>良  品  率：</Text>
+                                <Text style={styles.CardText}>良&nbsp;&nbsp;品&nbsp;&nbsp;率：</Text>
                                 <Text style={styles.CardText}>0%</Text>
                             </CardItem>
                             <CardItem footer style={{alignItems:'center',flex:1,paddingTop:0,paddingBottom:0,paddingLeft:0,paddingRight:0}}>
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     LogoImage:{
         height:80,
         width:80,
-        borderRadius:50,
+        borderRadius:Platform.OS === 'ios' ? 40:50,
         marginTop:-10
     },
     Card:{

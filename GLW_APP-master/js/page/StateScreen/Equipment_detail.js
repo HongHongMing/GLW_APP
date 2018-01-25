@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         padding:4
     },
     ListTitle:{
-        width:70
+        width:80
     },
     ListTitle100:{
         width:116

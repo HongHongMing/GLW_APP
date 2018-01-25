@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     TitleText:{
         color:'#191F25',
-        width:70,
+        width:80,
         fontSize:14,
     },
     ContentText:{

@@ -53,10 +53,10 @@ class TeamInformation extends Component {
                                 <Text style={styles.ListTitle}>实际工时：</Text><Text></Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>89%</Text>
+                                <Text style={styles.ListTitle}>达&nbsp;&nbsp;成&nbsp;&nbsp;率：</Text><Text>89%</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>100%</Text>
+                                <Text style={styles.ListTitle}>良&nbsp;&nbsp;品&nbsp;&nbsp;率：</Text><Text>100%</Text>
                             </View>
                             <View>
                                 <Text style={styles.text}>中班</Text>
@@ -68,10 +68,10 @@ class TeamInformation extends Component {
                                 <Text style={styles.ListTitle}>实际工时：</Text><Text></Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>88%</Text>
+                                <Text style={styles.ListTitle}>达&nbsp;&nbsp;成&nbsp;&nbsp;率：</Text><Text>88%</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>99%</Text>
+                                <Text style={styles.ListTitle}>良&nbsp;&nbsp;品&nbsp;&nbsp;率：</Text><Text>99%</Text>
                             </View>
                             <View>
                                 <Text style={styles.text}>晚班</Text>
@@ -83,10 +83,10 @@ class TeamInformation extends Component {
                                 <Text style={styles.ListTitle}>实际工时：</Text><Text></Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>达  成  率：</Text><Text>100%</Text>
+                                <Text style={styles.ListTitle}>达&nbsp;&nbsp;成&nbsp;&nbsp;率：</Text><Text>100%</Text>
                             </View>
                             <View style={[styles.FdR,styles.P4]}>
-                                <Text style={styles.ListTitle}>良  品  率：</Text><Text>0%</Text>
+                                <Text style={styles.ListTitle}>良&nbsp;&nbsp;品&nbsp;&nbsp;率：</Text><Text>0%</Text>
                             </View>
                             <View>
                                 <TouchableOpacity onPress={() => {this.goTeam()}} style={{justifyContent:'center',width:'100%',backgroundColor:'#ffffff',alignItems:'center',height:40,borderWidth:1,borderColor:'#3396FB',borderRadius:5}}>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         padding:4
     },
     ListTitle:{
-        width:70
+        width:80
     },
     ListTitle100:{
         width:116

@@ -96,10 +96,10 @@ export default class Parameter extends Component {
     render() {
         return (
             <View style={{flex:1}}>
-                <NavigationBar
-                    title={'设备详情'} style={{backgroundColor:'#3396FB',height:0}}
-                    statusBar={{backgroundColor:'#3396FB'}}
-                />
+                {/*<NavigationBar*/}
+                    {/*title={'设备详情'} style={{backgroundColor:'#3396FB',height:0}}*/}
+                    {/*statusBar={{backgroundColor:'#3396FB'}}*/}
+                {/*/>*/}
                 {/*<NavigationBar title={'报警中心'} style={{backgroundColor:'#3396FB'}} />*/}
                 {/*<Button title='滚动到指定位置' onPress={()=>{*/}
                 {/*//this._flatList.scrollToEnd();*/}

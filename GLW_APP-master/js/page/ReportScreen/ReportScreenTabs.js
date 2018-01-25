@@ -9,8 +9,17 @@ import {
     StyleSheet,
     Image,
     TouchableOpacity,
-    Text
+    Text, Platform
 } from 'react-native';
+const createStyle = require('../../util/StyleSheet');//引用安卓苹果控制样式
+const newStyles = createStyle.create({//自定义创建样式分类
+    tabStyle: {
+        ios: {
+            height: 35,
+        },
+        android: {},
+    }
+});
 const ProfileScreen = () => (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>production Screen</Text>
@@ -21,7 +30,8 @@ const productionScreen = () => (
         <Text>production Screen</Text>
     </View>
 );
-
+const NAV_BAR_HEIGHT_IOS = 35;
+const NAV_BAR_HEIGHT_ANDROID = 50;
 const ReportScreenTabs = TabNavigator({
     ReportScreen: {
         screen: Parameter,
@@ -34,13 +44,6 @@ const ReportScreenTabs = TabNavigator({
                 shadowOpacity:0,
                 elevation: 0
             },
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Ionicons
-                    name={focused ? 'ios-home' : 'ios-home-outline'}
-                    size={26}
-                    style={{ color: tintColor }}
-                />
-            ),
         },
     },
     Profile: {
@@ -54,13 +57,6 @@ const ReportScreenTabs = TabNavigator({
                 shadowOpacity:0,
                 elevation: 0
             },
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Ionicons
-                    name={focused ? 'ios-person' : 'ios-person-outline'}
-                    size={26}
-                    style={{ color: tintColor }}
-                />
-            ),
         },
     },
     production: {
@@ -73,14 +69,7 @@ const ReportScreenTabs = TabNavigator({
             headerStyle:{
                 shadowOpacity:0,
                 elevation: 0
-            },
-            tabBarIcon: ({ tintColor, focused }) => (
-            <Ionicons
-                name={focused ? 'ios-person' : 'ios-person-outline'}
-                size={26}
-                style={{ color: tintColor }}
-            />
-        ),
+            }
     },
 },
 },{
@@ -94,27 +83,35 @@ const ReportScreenTabs = TabNavigator({
             shadowOpacity:0,
             elevation: 0,
             margin: 0,
-            padding: 0,
+            color:'',
             borderTopColor: "#3396FB",
-            borderTopWidth: 0.5,
+            borderTopWidth: 0,
             borderBottomWidth: 0.5,
             borderBottomColor: "#C8C8CF",
             backgroundColor: "#3396FB",
+            fontSize:20,
+        },
+        tabStyle: newStyles.tabStyle,
+        labelStyle: {
+            fontSize: 16,
+            margin: 1
         },
         indicatorStyle:{
             height:2,
-            backgroundColor:'#ffffff',
+            backgroundColor:'#3396FB',
             paddingLeft:20,
-            paddingRight:20
+            paddingRight:20,
         },
-        activeBackgroundColor:'white',
+        activeBackgroundColor:'#3396FB',
         activeTintColor:'#ffffff',
-        inactiveBackgroundColor:'white',
-        inactiveTintColor:'#ffffff',
+        inactiveBackgroundColor:'#3396FB',
+        inactiveTintColor:'#C8C8CF',
         pressColor: "#C8C8CF",
         pressOpacity: 0.3,
         showLabel: true,
+        showIcon: false,
         upperCaseLabel: false,
     },
 });
+const tabStyleHeight = Platform.OS === 'ios' ? NAV_BAR_HEIGHT_IOS:0;
 export default ReportScreenTabs;

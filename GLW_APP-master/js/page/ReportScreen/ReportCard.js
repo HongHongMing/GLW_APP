@@ -20,9 +20,11 @@ class ReportCard extends Component {
                         style={{ color: '#3396FB' }}/>
                 </View>
                 <View>
-                    <Text style={styles.txt}>{item.ReportName}</Text>
+                    <View style={styles.mB5}>
+                        <Text style={styles.txt}>{item.ReportName}</Text>
+                    </View>
                     <View style={{justifyContent:'space-between',flexDirection:'row'}}>
-                        <Text>{item.ReportDescription}</Text>
+                        <Text style={styles.noneTxt}>{item.ReportDescription}</Text>
                     </View>
                 </View>
             </View>
@@ -34,7 +36,13 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         textAlignVertical: 'center',
         color: '#000000',
-        fontSize: 14,
+        fontSize: 16,
+    },
+    noneTxt:{
+      color:'#A0A2A5'
+    },
+    mB5:{
+        marginBottom:5
     }
 })
 export default ReportCard;
