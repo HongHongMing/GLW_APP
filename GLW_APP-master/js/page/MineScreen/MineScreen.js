@@ -18,7 +18,7 @@ export default class MineScreen extends Component {
     static navigationOptions = ({navigation,screenProps}) => ({
         title: '工作区间',
         headerLeft:<View/>,
-        headerRight:<TouchableOpacity onPress={() => {console.log("跳转")}}>
+        headerRight:<TouchableOpacity onPress={() => {console.log(navigation.state.params); navigation.state.params.goToSetPage()}}>
         <Text style={{color:'#ffffff',fontSize:18,paddingRight:10}} >设置</Text>
         </TouchableOpacity>,
         // header: <NavigationBar
@@ -30,6 +30,10 @@ export default class MineScreen extends Component {
         //     </TouchableOpacity>}
         // />
         })
+    componentDidMount(){
+        //在static中使用this方法
+        this.props.navigation.setParams({ goToSetPage:this.goSetUp})
+    }
     goCurrentAlarm = (e) =>{
         const {navigate} = this.props.navigation;
         navigate('currentAlarm');
@@ -39,8 +43,13 @@ export default class MineScreen extends Component {
         navigate('workingSchedule');
     }
     goTeam = (e) =>{
+        console.log('设置事件')
         const {navigate} = this.props.navigation;
         navigate('TeamInformation');
+    }
+    goSetUp =(e) => {
+        const {navigate} = this.props.navigation;
+        navigate('SetUp');
     }
     constructor(props) {
         super(props);
@@ -85,7 +94,7 @@ export default class MineScreen extends Component {
             series: [{
                 name: '饼图二',
                 type: 'pie',
-                radius: [32, 42],
+                radius: [45, 42],
                 hoverAnimation: false,
                 label: {
                     normal: {

@@ -29,7 +29,7 @@ import {
 } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
-
+let formData = new FormData();
 class Launch extends Component {
 
     static navigationOptions = {
@@ -39,20 +39,53 @@ class Launch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user:'用户',
-            pw:'密码'
+            user:'',
+            pw:''
         };
     }
     onButtonPress(){
-        console.log('a');
         const {navigate} = this.props.navigation;
             const routeName = 'Tabbar';
-            const reset = NavigationActions.reset({
-                index: 0,
-                actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
-            });
-            this.props.navigation.dispatch(reset);
+            // const reset = NavigationActions.reset({
+            //     index: 0,
+            //     actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
+            // });
+            // this.props.navigation.dispatch(reset);
+
+            //登录验证
+            // formData = new FormData();
+            // formData.append("user_name",this.state.user);
+            // formData.append("password",this.state.pw);
+            // console.log(formData);
+            // this.fetchData().then((response)=>{
+            //     console.log(response.code)
+            //     if (response.code===0) {
+            //         navigate('Tabbar');
+            //     }
+            // });
+
             navigate('Tabbar');
+    }
+
+    async fetchData() {
+        try {
+            // 注意这里的await语句，其所在的函数必须有async关键字声明
+            let response = await fetch('http://139.159.212.187:2200/api/gaoliwei/user/token', {
+                method: 'POST',
+                // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body:formData
+            });
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+    _onRefresh() {
+        this.setState({refreshing: true});
+        this.fetchData().then(() => {
+            this.setState({refreshing: false});
+        });
     }
     componentDidMount() {
         // this.timer = setTimeout(() => {
@@ -77,11 +110,14 @@ class Launch extends Component {
                 <TextInput
                     style={{height: 40, borderColor: 'gray', borderWidth: 1,width:200}}
                     onChangeText={(user) => this.setState({user})}
+                    placeholder={"请输入用户名"}
                     value={this.state.user}
                 />
                 <TextInput
                     style={{height: 40, borderColor: 'gray', borderWidth: 1,width:200}}
                     onChangeText={(pw) => this.setState({pw})}
+                    placeholder={"请输入密码"}
+                    secureTextEntry={true}
                     value={this.state.pw}
                 />
                 <Button
