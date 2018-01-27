@@ -110,7 +110,7 @@ class Launch extends Component {
                 <TextInput
                     style={{height: 40, borderColor: 'gray', borderWidth: 1,width:200}}
                     onChangeText={(user) => this.setState({user})}
-                    placeholder={"请输入用户名"}
+                    placeholder={"请输入用户名神奇"}
                     value={this.state.user}
                 />
                 <TextInput
