@@ -25,7 +25,7 @@ import {
     Text,
     StatusBar,
     TextInput,
-    TouchableOpacity
+    Button
 } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
@@ -45,24 +45,24 @@ class Launch extends Component {
     }
     onButtonPress(){
         const {navigate} = this.props.navigation;
-        const routeName = 'Tabbar';
-        // const reset = NavigationActions.reset({
-        //     index: 0,
-        //     actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
-        // });
-        // this.props.navigation.dispatch(reset);
+            const routeName = 'Tabbar';
+            // const reset = NavigationActions.reset({
+            //     index: 0,
+            //     actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
+            // });
+            // this.props.navigation.dispatch(reset);
 
-        //登录验证
-        // formData = new FormData();
-        // formData.append("user_name",this.state.user);
-        // formData.append("password",this.state.pw);
-        // console.log(formData);
-        // this.fetchData().then((response)=>{
-        //     console.log(response.code)
-        //     if (response.code===0) {
-        //         navigate('Tabbar');
-        //     }
-        // });
+            //登录验证
+            // formData = new FormData();
+            // formData.append("user_name",this.state.user);
+            // formData.append("password",this.state.pw);
+            // console.log(formData);
+            // this.fetchData().then((response)=>{
+            //     console.log(response.code)
+            //     if (response.code===0) {
+            //         navigate('Tabbar');
+            //     }
+            // });
 
         navigate('Tabbar');
     }
@@ -87,6 +87,23 @@ class Launch extends Component {
             this.setState({refreshing: false});
         });
     }
+    componentDidMount() {
+        // this.timer = setTimeout(() => {
+        //     //const {navigate} = this.props.navigation;
+        //     const routeName = 'Tabbar';
+        //     const reset = NavigationActions.reset({
+        //         index: 0,
+        //         actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
+        //     });
+        //     this.props.navigation.dispatch(reset);
+        //     // navigate('Tabbar');
+        // }, 2000);
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.timer);
+    }
+
     render() {
         return (
             <View style={{width:'100%',height:'100%',backgroundColor:'#f0eff4'}}>
