@@ -94,7 +94,7 @@ class Launch extends Component {
                     <Image source={require('../../../res/images/Launch_bg.png')} style={{height: 280,width:'100%'}} />
                     <Image source={require('../../../res/images/LOGO-Model.png')} style={styles.logImage}/>
                     <View style={{alignItems:'center',width:'92%',marginTop:-40,backgroundColor:'#fff',borderRadius:5,overflow:'visible'}}>
-                        <Text style={{color:'#5baafb',fontSize:20,marginTop:40,marginBottom:30}}>欢迎登录haha</Text>
+                        <Text style={{color:'#5baafb',fontSize:20,marginTop:40,marginBottom:30}}>欢迎登录</Text>
                         <TextInput
                             style={styles.TextInput}
                             onChangeText={(user) => this.setState({user})}
