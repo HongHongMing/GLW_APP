@@ -46,8 +46,8 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     Context instance = getApplicationContext();
-    AppException appException = AppException.getInstance();
-    appException.init(instance);
+//    AppException appException = AppException.getInstance();
+//    appException.init(instance);
     SoLoader.init(this, /* native exopackage */ false);
   }
 }

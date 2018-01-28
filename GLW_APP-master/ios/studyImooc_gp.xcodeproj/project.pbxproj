@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -62,6 +61,7 @@
 		E66C11F2679545D9BCAB1999 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9010D22928DD4632849FAD77 /* EvilIcons.ttf */; };
 		EDAB5F8CD2D9477E904967B6 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9FED396BC474A918ACDE1C4 /* FontAwesome.ttf */; };
 		F5B2E07301DC446AB4016E6D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A283BE025794ADFBAF35C31 /* Zocial.ttf */; };
+		D5A1B987CD414D169BA3BABB /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF91A7876654236B8091091 /* libSplashScreen.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -351,6 +351,8 @@
 		EAC5DF04D71B4B9594FCC38D /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		EB4569D25AC749CB9747DF06 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		FB2491CE206544F39677E08D /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		635F0A92C87E40999012AD42 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; name = "SplashScreen.xcodeproj"; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		5CF91A7876654236B8091091 /* libSplashScreen.a */ = {isa = PBXFileReference; name = "libSplashScreen.a"; path = "libSplashScreen.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +383,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				B1B6233503E44C7DB1259A1D /* libRNVectorIcons.a in Frameworks */,
 				C40ACE36A63E41E2AA345F7D /* libRCTBEEPickerManager.a in Frameworks */,
+				D5A1B987CD414D169BA3BABB /* libSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +580,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				3819833B60E1475FBDE9AA18 /* RNVectorIcons.xcodeproj */,
 				02A62F99A4A444949D71050F /* RCTBEEPickerManager.xcodeproj */,
+				635F0A92C87E40999012AD42 /* SplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1216,12 +1220,14 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-pickeriosRCTBEEPickerManager",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = studyImooc_gpTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1243,12 +1249,14 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-pickeriosRCTBEEPickerManager",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = studyImooc_gpTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1271,6 +1279,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-pickeriosRCTBEEPickerManager",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = studyImooc_gp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1293,6 +1302,7 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-pickeriosRCTBEEPickerManager",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = studyImooc_gp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1322,11 +1332,13 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-pickeriosRCTBEEPickerManager",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = "studyImooc_gp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1358,11 +1370,13 @@
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-pickeriosRCTBEEPickerManager",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = "studyImooc_gp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1395,6 +1409,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.studyImooc_gp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1419,6 +1434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

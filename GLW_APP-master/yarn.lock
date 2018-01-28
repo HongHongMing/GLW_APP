@@ -3700,9 +3700,9 @@ react-native-modal@3.1.0:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"
 
-react-native-picker@^4.3.4:
-  version "4.3.4"
-  resolved "http://registry.npm.taobao.org/react-native-picker/download/react-native-picker-4.3.4.tgz#8a5ebcd7c31d315a3d54538157be7ff2dfa276eb"
+react-native-picker@^4.3.5:
+  version "4.3.5"
+  resolved "http://registry.npm.taobao.org/react-native-picker/download/react-native-picker-4.3.5.tgz#bf791dde6908028a11aacb3fdc7c6b2bdb2cd3f3"
 
 react-native-popup-dialog@^0.10.46:
   version "0.10.46"
@@ -3710,10 +3710,6 @@ react-native-popup-dialog@^0.10.46:
   dependencies:
     babel-plugin-flow-react-proptypes "^9.1.1"
     prop-types "^15.6.0"
-
-react-native-splash-screen@^3.0.6:
-  version "3.0.6"
-  resolved "http://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.0.6.tgz#c0bbf2c8ae40a313c4c7044f55e569414ff68332"
 
 react-native-tab-view@^0.0.74:
   version "0.0.74"
