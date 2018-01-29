@@ -25,10 +25,12 @@ import {
     Text,
     StatusBar,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableHighlight
 } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
+import Toast, {DURATION} from 'react-native-easy-toast'
 let formData = new FormData();
 class Launch extends Component {
 
@@ -45,13 +47,6 @@ class Launch extends Component {
     }
     onButtonPress(){
         const {navigate} = this.props.navigation;
-        const routeName = 'Tabbar';
-        // const reset = NavigationActions.reset({
-        //     index: 0,
-        //     actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
-        // });
-        // this.props.navigation.dispatch(reset);
-
         //登录验证
         formData = new FormData();
         formData.append("user_name",this.state.user);
@@ -60,7 +55,15 @@ class Launch extends Component {
         this.fetchData().then((response)=>{
             console.log(response.code,response.msg)
             if (response.code===0) {
+                const routeName = 'Tabbar';
+                const reset = NavigationActions.reset({
+                    index: 0,
+                    actions: [NavigationActions.navigate({routeName: 'Tabbar'})]
+                });
+                this.props.navigation.dispatch(reset);
                 navigate('Tabbar');
+            }else{
+                this.refs.toast.show(response.msg,DURATION.LENGTH_LONG);
             }
         });
 
@@ -90,8 +93,20 @@ class Launch extends Component {
     render() {
         return (
             <View style={{width:'100%',height:'100%',backgroundColor:'#f0eff4'}}>
+                {/*弹框*/}
+                <View>
+                    <Toast
+                        ref="toast"
+                        position='bottom'
+                         positionValue={200}
+                        // fadeInDuration={750}
+                        // fadeOutDuration={1000}
+                        opacity={0.8}
+                    />
+                </View>
+
                 <View style={{alignItems:'center',backgroundColor:'#f0eff4'}}>
-                    <Image source={require('../../../res/images/Launch_bg.png')} style={{height: 280,width:'100%'}} />
+                    <Image source={require('../../../res/images/Launch_bg.png')} style={{height:'45%',width:'100%'}} />
                     <Image source={require('../../../res/images/LOGO-Model.png')} style={styles.logImage}/>
                     <View style={{alignItems:'center',width:'92%',marginTop:-40,backgroundColor:'#fff',borderRadius:5,overflow:'visible'}}>
                         <Text style={{color:'#5baafb',fontSize:20,marginTop:40,marginBottom:30}}>欢迎登录</Text>
@@ -115,7 +130,7 @@ class Launch extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={{ justifyContent:'center'}}>
+                <View style={{ justifyContent:'center',alignItems:'center'}}>
                     <Text style={{color:'#C8C8CF'}}>广州盛原成科技有限公司</Text>
                 </View>
             </View>
@@ -152,6 +167,7 @@ const styles = StyleSheet.create({
         width:'90%',
         marginTop:15,
         borderRadius:20,
+        paddingLeft:10,
         backgroundColor:'#f0eff4'
     },
     TouchableOpacity:{

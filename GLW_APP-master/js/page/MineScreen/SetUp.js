@@ -23,12 +23,26 @@ class SetUp extends Component {
     }
 
     static navigationOptions = ({navigation,screenProps}) => ({
-        title: '设置'
+        title: '设置',
+        headerRight:<View/>
     })
 
     render () {
         return (
-            <View></View>
+            <View style={styles.container}>
+                <View style={styles.List}>
+                    <Text style={styles.text}>用户信息</Text>
+                </View>
+                <View style={styles.List}>
+                    <Text style={styles.text}>修改密码</Text>
+                </View>
+                <View style={styles.List}>
+                    <Text style={styles.text}>关于</Text>
+                </View>
+                <View style={styles.List}>
+                    <Text style={styles.text}>退出</Text>
+                </View>
+            </View>
         );
     }
 }
@@ -44,6 +58,13 @@ const styles = StyleSheet.create({
     P4:{
         padding:4
     },
+    List:{
+        height:52,
+        backgroundColor:'#ffffff',
+        borderColor:'#c9c9c9',
+        borderBottomWidth:1,
+        justifyContent:'center'
+    },
     ListTitle:{
         width:80
     },
@@ -51,13 +72,13 @@ const styles = StyleSheet.create({
         width:116
     },
     text: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        alignItems:'center',
-        textAlign:'center'
+        fontSize: 16,
+        textAlign:'left',
+        paddingLeft:10,
+        color:'#000000'
     },
     txt: {
-        textAlign: 'center',
+        textAlign: 'left',
         textAlignVertical: 'center',
         color: 'white',
         fontSize: 30,
